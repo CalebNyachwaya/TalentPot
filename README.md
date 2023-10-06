@@ -1,4 +1,3 @@
-//
 # TalentPot
 
 TalentPot simplifies employee management. Easily organize HR tasks, track employee details, and create a productive workplace.
