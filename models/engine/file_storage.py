@@ -6,7 +6,7 @@ Contains the FileStorage class
 import json
 import models
 from models.base_model import BaseModel
-from models.user import Employee
+from models.employee import Employee
 from hashlib import md5
 
 classes = {"Employee": Employee}
