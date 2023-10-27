@@ -1,24 +1,31 @@
 #!/usr/bin/python3
-""" objects that handle all default RestFul API actions for Users """
-from models.user import User
+""" objects that handle all default RestFul API actions for Employees """
+from models.employee import Employee
 from models import storage
 from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
 from flasgger.utils import swag_from
 
 
-@app_views.route('/users', methods=['GET'], strict_slashes=False)
-@swag_from('documentation/user/all_users.yml')
-def get_users():
+@app_views.route('/employees/<company>', methods=['GET'], strict_slashes=False)
+"""@swag_from('documentation/user/all_users.yml')"""
+def get_employees(company):
     """
-    Retrieves the list of all user objects
-    or a specific user
+    Retrieves the list of all employees in a given company
     """
-    all_users = storage.all(User).values()
-    list_users = []
-    for user in all_users:
-        list_users.append(user.to_dict())
-    return jsonify(list_users)
+    all_employees = storage.all(Employee).values()
+    list_employees = []
+    dict_employees = {}
+    for emp in all_employees:
+        all_emp = emp.to_dict()
+        for a, b in all_emp.items():
+            if a == "company" && b == company:
+                dict_employees = all_emp.copy()
+        dict_employees[password].delete()
+        if len(dict_employees) >= 1:
+            list_employees.append(dict_employees)
+        dict_employees.clear()
+    return jsonify(list_employees)
 
 
 @app_views.route('/users/<user_id>', methods=['GET'], strict_slashes=False)
