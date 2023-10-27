@@ -4,7 +4,7 @@
 -- ------------------------------------------------------
 -- Server version	5.7.8-rc
 
-USE tp_test_db;
+USE tp_dev_db;
 
 --
 -- Table structure for table `cities`

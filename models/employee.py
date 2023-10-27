@@ -16,16 +16,16 @@ class Employee(BaseModel, Base):
         __tablename__ = 'employees'
         email = Column(String(128), nullable=False)
         password = Column(String(128), nullable=False)
-        first_name = Column(String(128), nullable=True)
-        last_name = Column(String(128), nullable=True)
-        phone = Column(String(128), nullable=True)
-        dept = Column(String(128), nullable=True)
-        position = Column(String(128), nullable=True)
-        DOB = Column(String(128), nullable=True)
-        company = Column(String(128), nullable=True)
-        address = Column(String(128), nullable=True)
-        city = Column(String(128), nullable=True)
-        country = Column(String(128), nullable=True)
+        first_name = Column(String(128), nullable=False)
+        last_name = Column(String(128), nullable=False)
+        phone = Column(String(128), nullable=False)
+        dept = Column(String(128), nullable=False)
+        position = Column(String(128), nullable=False)
+        DOB = Column(String(128), nullable=False)
+        company = Column(String(128), nullable=False)
+        address = Column(String(128), nullable=False)
+        city = Column(String(128), nullable=False)
+        country = Column(String(128), nullable=False)
     else:
         email = ""
         password = ""
