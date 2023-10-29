@@ -54,3 +54,62 @@ def post_employees(company):
     emp_ins = Employee(**data)
     emp_ins.save()
     return make_response(jsonify(emp_ins.to_dict()), 201)
+
+@app_views.route('/employees/<company>/<dept>', methods=['GET'], strict_slashes=False)
+def get_dept_employees(company, dept):
+    """
+    Retrieves the list of all department employees in a given company
+    """
+    all_employees = storage.all(Employee).values()
+    list_employees = []
+    dict_employees = {}
+    found = False
+    for emp in all_employees:
+        all_emp = emp.to_dict()
+        for a, b in all_emp.items():
+            if a == "company" and b == company and found is False:
+
+                dict_employees = all_emp.copy()
+                found = True
+        found = False
+        if "password" in dict_employees:
+            del dict_employees["password"]
+        if len(dict_employees) >= 1:
+            list_employees.append(dict_employees)
+        dict_employees = {}
+    dept_list = []
+    for c in list_employees:
+        if dept in c.values():
+            dept_list.append(c)
+    return jsonify(dept_list)
+
+@app_views.route('/employees/<company>/<employee_id>', methods=['DELETE', 'PUT'],
+                 strict_slashes=False)
+def employee_with_id(company, employee_id=None):
+    """
+        employees route that handles http requests with ID given
+    """
+    employee_obj = storage.get(Employee).values()
+    if employee_obj is None:
+        abort(404, 'Not found')
+
+    if request.method == 'DELETE':
+        for a in employee_obj:
+            if a.id is employee_id:
+                if a.company is company:
+                    a.delete()
+                    return jsonify({}), 200
+                else:
+                    abort(404, 'Not a company member')
+
+    if request.method == 'PUT':
+        req_json = request.get_json()
+        if req_json is None:
+            abort(400, 'Not a JSON')
+        for b in employee_obj:
+            if b.id is employee_id:
+                if b.company is company:
+                    b.bm_update(req_json)
+                    return jsonify(b.to_dict()), 200
+                else:
+                    abort(404, 'Not a company member')
