@@ -108,12 +108,13 @@ def employee_with_id(company, employee_id=None):
             abort(400, 'Not a JSON')
         for b in employee_obj:
             emp_obj = b.to_dict()
-            if emp_obj["id"] is employee_id:
-                if emp_obj["company"] is company:
+            if emp_obj["id"] == employee_id:
+                if emp_obj["company"] == company:
                     for x, y in req_json.items():
                         setattr(b, x, y)
                     storage.save()
                     return make_response(jsonify(b.to_dict()), 200)
                 else:
                     abort(404, 'Not a company member')
-            emp_obj = {}        
+            emp_obj = {}
+        abort(404, 'Not found..')
