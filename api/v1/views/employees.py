@@ -89,7 +89,7 @@ def employee_with_id(company, employee_id=None):
     """
         employees route that handles http requests with ID given
     """
-    employee_obj = storage.get(Employee).values()
+    employee_obj = storage.all(Employee).values()
     if employee_obj is None:
         abort(404, 'Not found')
 
@@ -107,9 +107,13 @@ def employee_with_id(company, employee_id=None):
         if req_json is None:
             abort(400, 'Not a JSON')
         for b in employee_obj:
-            if b.id is employee_id:
-                if b.company is company:
-                    b.bm_update(req_json)
-                    return jsonify(b.to_dict()), 200
+            emp_obj = b.to_dict()
+            if emp_obj["id"] is employee_id:
+                if emp_obj["company"] is company:
+                    for x, y in req_json.items():
+                        setattr(b, x, y)
+                    storage.save()
+                    return make_response(jsonify(b.to_dict()), 200)
                 else:
                     abort(404, 'Not a company member')
+            emp_obj = {}        
