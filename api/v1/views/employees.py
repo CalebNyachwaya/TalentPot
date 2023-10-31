@@ -95,12 +95,17 @@ def employee_with_id(company, employee_id=None):
 
     if request.method == 'DELETE':
         for a in employee_obj:
-            if a.id is employee_id:
-                if a.company is company:
-                    a.delete()
+            emp_obj = a.to_dict()
+            if emp_obj["id"] == employee_id:
+                if emp_obj["company"] == company:
+                    storage.delete(a)
+                    storage.save()
+
                     return jsonify({}), 200
                 else:
                     abort(404, 'Not a company member')
+            emp_obj = {}
+        abort(404, 'Not found..')
 
     if request.method == 'PUT':
         req_json = request.get_json()
