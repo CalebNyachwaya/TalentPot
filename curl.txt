@@ -1,0 +1,10 @@
+TP_MYSQL_USER=tp_dev TP_MYSQL_PWD=TP_dev_pwd_001 TP_MYSQL_HOST=localhost TP_MYSQL_DB=tp_dev_db TP_TYPE_STORAGE=db TP_API_HOST=0.0.0.0 TP_API_PORT=5001 python3 -m api.v1.app
+
+curl -X GET http://0.0.0.0:5001/api/v1/employees/abc
+
+curl -X PUT http://0.0.0.0:5001/api/v1/employees/abc/521a55f4-7d82-47d9-b54c-a76916479545 -H "Content-Type: application/json" -d '{"dept": "Customer service"}'
+
+curl -X DELETE http://0.0.0.0:5001/api/v1/employees/abc/521a55f4-7d82-47d9-b54c-a76916479545
+
+sudo lsof -i : 5001
+sudo kill -9 402
