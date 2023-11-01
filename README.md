@@ -1,4 +1,19 @@
-# AirBnB Clone - The Console
+# TalentPot
+
+TalentPot simplifies employee management. Easily organize HR tasks, track employee details, and create a productive workplace.
+
+## Features:
+- Employee Data Management
+- Department and Position Tracking
+- Joining and Departure Records
+- Birthday and Anniversary Reminders
+  
+<!--
+User-Friendly HR Interface
+Collaborative HR Tools
+Simplify HR with TalentPot
+
+*********************************************
 The console is the first segment of the AirBnB project at Holberton School that will collectively cover fundamental concepts of higher level programming. The goal of AirBnB project is to eventually deploy our server a simple copy of the AirBnB Website(HBnB). A command interpreter is created in this segment to manage objects for the AirBnB(HBnB) website.
 
 #### Functionalities of this command interpreter:
@@ -152,11 +167,14 @@ EOF  all  create  destroy  help  quit  show  update
 
 ## Bugs
 No known bugs at this time. 
+-->
 
 ## Authors
 - [Richard Chukwuchekwa](https://github.com/Chekwasy)
 - [Caleb Nyachwaya](https://github.com/CalebNyachwaya)
 
+<!--
 Second part of Airbnb: Joann Vuong
 ## License
-Public Domain. No copy write protection. 
+Public Domain. No copy write protection.
+-->
