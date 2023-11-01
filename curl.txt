@@ -6,5 +6,5 @@ curl -X PUT http://0.0.0.0:5001/api/v1/employees/abc/521a55f4-7d82-47d9-b54c-a76
 
 curl -X DELETE http://0.0.0.0:5001/api/v1/employees/abc/521a55f4-7d82-47d9-b54c-a76916479545
 
-sudo lsof -i : 5001
+sudo lsof -i :5001
 sudo kill -9 <PID of the process using the port 5001>
