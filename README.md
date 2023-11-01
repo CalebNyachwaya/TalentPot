@@ -6,7 +6,7 @@ TalentPot simplifies employee management. Easily organize HR tasks, track employ
 - Employee Data Management
 - Department and Position Tracking
 - Joining and Departure Records
-- Birthday and Anniversary Reminders
+- Modifying employee records
   
 <!--
 User-Friendly HR Interface
