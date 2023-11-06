@@ -1,0 +1,60 @@
+/* ACCESS COLOR: #F96D28 
+GREY COLOR: #0e1152*/
+
+.grid-2-cols {
+  align-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.content {
+  margin-left: 120px;
+  /* display: none; */
+}
+
+.headline {
+  max-width: 700px;
+}
+
+.landing-text {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+  max-width: 700px;
+}
+
+h1 {
+  font-size: 60px;
+  line-height: 1.1;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+}
+
+/* button */
+.btn:link,
+.btn:visited {
+  background-color: #f96d28;
+  color: #fff;
+  text-decoration: none;
+  /* text-transform: uppercase; */
+  display: inline-block;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #fa7c3e;
+}
+
+.btn-big {
+  padding: 16px 32px;
+  font-weight: 500;
+}
+
+.btn--small {
+  padding: 8px 16px;
+  color: #fff;
+}
+
+.btn {
+  border-radius: 100px;
+}

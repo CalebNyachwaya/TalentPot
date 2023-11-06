@@ -1,0 +1,52 @@
+header {
+  height: 80px;
+  width: 100%;
+  position: absolute;
+  top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navigation-bar {
+  width: 700px;
+  display: flex;
+  justify-content: space-around;
+  margin-right: 120px;
+  align-items: center;
+}
+
+.logo {
+  margin-left: 120px;
+}
+
+.navigation-bar a:link,
+.navigation-bar a:visited {
+  font-weight: 600;
+  font-size: 20px;
+  text-decoration: none;
+  color: #0e1152;
+  position: relative;
+}
+
+/* BROWN DOT ANIMATION */
+.navigation-bar a::after {
+  content: ""; /* Create a content box (the dot) */
+  position: absolute;
+  left: 50%; /* Center the dot horizontally */
+  bottom: -18px; /* Move it below the link (adjust this value as needed) */
+  /* transform: translateX(-50%); */
+  width: 8px;
+  height: 8px;
+  background-color: transparent; /* Initially transparent */
+  border-radius: 50%;
+  transition: background-color 0.2s; /* Add a smooth transition effect for visibility */
+}
+
+.navigation-bar a:hover::after {
+  background-color: #f96d28; /* Make the dot red on hover */
+}
+
+.navigation-bar a.exclude-dot::after {
+  background-color: transparent; /* Exclude the "exclude-dot" link from the red dot effect */
+}
