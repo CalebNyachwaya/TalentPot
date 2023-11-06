@@ -1,0 +1,49 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  color: #0e1152;
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+  display: relative;
+}
+
+.main-container {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: grid;
+  width: 100%;
+}
+
+.features-section {
+  margin-top: 40px;
+}
+
+.feature {
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feature h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.feature p {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #0e1152;
+}
+
+.feature a.btn {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* If you have custom styles for your buttons, include them here */
