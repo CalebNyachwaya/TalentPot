@@ -45,9 +45,9 @@ body {
   display: inline-block;
   margin-top: 20px;
 }
-.hidden {
+/* .hidden {
   display: none;
-}
+} */
 /* If you have custom styles for your buttons, include them here */
 
 .overlay {
@@ -66,8 +66,8 @@ body {
   position: fixed;
   top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Center the modal */
+  transform: translate(-50%, -50%); /*Center the modal*/
   background: #fff;
-  padding: 20px;
+  padding: 40px;
   z-index: 2; /* Place it above the overlay */
 }
