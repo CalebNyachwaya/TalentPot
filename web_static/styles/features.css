@@ -1,0 +1,28 @@
+.features h1 {
+  font-size: 36px;
+  line-height: 1.3;
+  margin-bottom: 30px;
+  letter-spacing: -0.8px;
+}
+
+.features img {
+  height: 400px;
+  width: auto;
+}
+
+.featuresOdd {
+  display: flex;
+  align-items: center;
+  margin-left: 100px;
+}
+
+.features-text {
+  max-width: 700px;
+  padding: 0 36px;
+}
+
+.featuresEven {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
