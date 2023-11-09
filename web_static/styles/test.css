@@ -5,6 +5,9 @@ body {
   font-size: 18px;
   font-family: "Inter", sans-serif;
   display: relative;
+  border-image: linear-gradient(to right, #cdffd8, #94b9ff);
+  border-image-slice: 1;
+  border-bottom: 8px solid;
 }
 
 .main-container {

@@ -6,7 +6,6 @@ body {
   font-size: 18px;
   font-family: "Poppins", "Inter", sans-serif;
   display: relative;
-  /* border-bottom: #94b9ff solid 5px; */
   border-image: linear-gradient(to right, #cdffd8, #94b9ff);
   border-image-slice: 1;
   border-bottom: 8px solid;
