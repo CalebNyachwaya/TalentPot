@@ -6,6 +6,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* background-color: #f96d28; */
 }
 
 .navigation-bar {
@@ -18,6 +19,8 @@ header {
 
 .logo {
   margin-left: 120px;
+  height: 60px;
+  width: auto;
 }
 
 .navigation-bar a:link,

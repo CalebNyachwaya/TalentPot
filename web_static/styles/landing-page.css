@@ -11,7 +11,7 @@ body {
 
 /* Section 1: Image Background with Headline and Subheadline */
 .main-container {
-  background-image: url("../images/test.svg");
+  background-image: url("../images/landing-background.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
