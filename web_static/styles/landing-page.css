@@ -4,7 +4,7 @@ body {
   padding: 0px;
   color: #0e1152;
   font-size: 18px;
-  font-family: "Poppins", "Inter", sans-serif;
+  font-family: "Inter", sans-serif;
   display: relative;
   border-image: linear-gradient(to right, #cdffd8, #94b9ff);
   border-image-slice: 1;
