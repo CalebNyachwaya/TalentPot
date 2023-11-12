@@ -1,0 +1,24 @@
+.features h1 {
+    margin-bottom: 30px;
+}
+
+.features img {
+    height: 200px;
+    width: auto;
+}
+
+.featuresOdd {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 700px;
+    height: 200px;
+}
+
+.featuresEven {
+    display: flex;
+    height: 200px;
+    align-items: center;
+    width: 700px;
+    flex-direction: row;
+}

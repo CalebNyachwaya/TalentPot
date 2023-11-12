@@ -83,9 +83,9 @@ def get_dept_employees(company, dept):
             dept_list.append(c)
     return jsonify(dept_list)
 
-@app_views.route('/employees/<company>/<employee_id>', methods=['DELETE', 'PUT'],
+@app_views.route('/employees/<company>/<password>/<email>', methods=['DELETE', 'PUT'],
                  strict_slashes=False)
-def employee_with_id(company, employee_id=None):
+def employee_with_id(company, password, email):
     """
         employees route that handles http requests with ID given
     """
@@ -96,12 +96,13 @@ def employee_with_id(company, employee_id=None):
     if request.method == 'DELETE':
         for a in employee_obj:
             emp_obj = a.to_dict()
-            if emp_obj["id"] == employee_id:
+            if emp_obj["email"] == email:
                 if emp_obj["company"] == company:
-                    storage.delete(a)
-                    storage.save()
+                    if emp_obj["password"] == password:
+                        storage.delete(a)
+                        storage.save()
 
-                    return jsonify({}), 200
+                        return jsonify({}), 200
                 else:
                     abort(404, 'Not a company member')
             emp_obj = {}
@@ -109,16 +110,21 @@ def employee_with_id(company, employee_id=None):
 
     if request.method == 'PUT':
         req_json = request.get_json()
+        dct = {}
         if req_json is None:
             abort(400, 'Not a JSON')
+        for arr, brr in  req_json.items():
+            if len(brr) > 2:
+                dct[arr] = brr
         for b in employee_obj:
             emp_obj = b.to_dict()
-            if emp_obj["id"] == employee_id:
+            if emp_obj["email"] == employee_id:
                 if emp_obj["company"] == company:
-                    for x, y in req_json.items():
-                        setattr(b, x, y)
-                    storage.save()
-                    return make_response(jsonify(b.to_dict()), 200)
+                    if emp_obj["password"] == password:
+                        for x, y in dct.items():
+                            setattr(b, x, y)
+                            storage.save()
+                        return make_response(jsonify(b.to_dict()), 200)
                 else:
                     abort(404, 'Not a company member')
             emp_obj = {}

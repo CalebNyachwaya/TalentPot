@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="shortcut icon" href="images/icon.png" />
+    <title>Talentpot - Add</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:ital,wght@1,100&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../static/styles/test.css" />
+    <link rel="stylesheet" href="../static/styles/header.css" />
+    <link rel="stylesheet" href="../static/styles/main.css" />
+    <link rel="stylesheet" href="../static/styles/landing-page.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="head_logo"></div>
+      <div class="navigation-bar">
+	<nav>
+	  <a href="https://www.calebcodes.tech">Home</a>
+	  <a href="#features">Features</a>
+	  <a href="">About</a>
+	  <a class="btn btn--small exclude-dot" href="test.html">Test</a>
+	</nav>
+      </div>
+    </header>
+    <div class="main-container-test-add">
+      <section class="grid-2-cols-add features-section">
+	<div class="feature1">
+	  <h2>Delete User</h2>
+	  <p>Click the button to delete an existing user.</p>
+	  <a class="btn btn-big" href="https://www.calebcodes.tech/delete">Delete User</a>
+	</div>
+	<div class="feature2">
+	  <h2>Modify User</h2>
+	  <p>Edit user details by clicking the button.</p>
+	  <a class="btn btn-big" href="https://www.calebcodes.tech/modify">Modify User</a>
+	</div>
+      </section>
+      <form id="addUserForm" class="add_form">
+	<h2>Add User</h2>
+	<label for="first_name">First Name:</label>
+	<input type="text" name="first_name" id="first_name" required minlength="3"/>
+	<br />
+	<label for="last_name">Last Name:</label>
+	<input type="text" name="last_name" id="last_name" required minlength="3"/> <br />
+	<label for="email">Email:</label>
+	<input type="email" name="email" id="email" required /> <br />
+	<label for="password">Password:</label>
+	<input type="password" name="password" id="password" required minlength="6" />
+	<br />
+	<label for="company">Company:</label>
+	<input type="text" name="company" id="company" required /> <br />
+	<label for="DOB">Date of Birth:</label>
+	<input type="datetime" name="DOB" id="DOB" required /> <br />
+	<label for="address">Address:</label>
+	<input type="text" name="address" id="address" required /> <br />
+	<label for="city">City:</label>
+	<input type="text" name="city" id="city" required /> <br />
+	<label for="country">Country:</label>
+	<input type="text" name="country" id="country" required /> <br />
+	<label for="dept">Department:</label>
+	<input type="text" name="dept" id="dept" required /> <br />
+	<label for="position">Position:</label>
+	<input type="text" name="position" id="position" required /> <br />
+	<label for="phone">Phone:</label>
+	<input type="tel" name="phone" id="phone" required maxlength="15"/> <br /><br />
+	<button type="submit" id="asub" class="btn btn-big">Add</button>
+      </form>
+    </div>
+    <footer>
+      <p>Copyright © TalentPot All Rights Reserved</p>
+    </footer>
+    <script type="text/javascript" src="../static/scripts/all_script.js"></script>
+  </body>
+</html>

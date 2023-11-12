@@ -1,0 +1,83 @@
+/* Default font size, color, margin padding */
+
+/* Section 1: Image Background with Headline and Subheadline */
+.main-container {
+    background-image: url("../images/landing-background.svg");
+    background-size: 700px;
+    background-repeat: no-repeat;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    border-radius: 30px;
+}
+.main-container-test {
+    height: 600px;
+    display: flex;
+    background-color: aliceblue;
+    align-self: center;
+    flex-direction: column;
+    width: 700px;
+    border-radius: 30px;
+}
+.main-container-test-add {
+    height: 1000px;
+    display: flex;
+    background-color: aliceblue;
+    align-self: center;
+    flex-direction: row;
+    width: 700px;
+    border-radius: 30px;
+}
+.main_text {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.features {
+    background-color: skyblue;
+    border-radius: 30px;
+    height: 600px;
+    width: 700px;
+    /* padding-top: 48px; */
+    /* row-gap: 10px; */
+    display: flex;
+    flex-direction: column;
+}
+
+.head_logo {
+    background-image: url("../images/TalentPotlogo.svg");
+    width: 50%;
+    height: 70px;
+    background-repeat: no-repeat;
+}
+.odd1img {
+    background-image: url(../images/feature4bb.svg);
+    background-size: 200px;
+    width: 350px;
+    background-repeat: no-repeat;
+    height: 150px;
+}
+.odd2img {
+    background-image: url(../images/feature2bb.svg);
+    background-size: 200px;
+    width: 350px;
+    background-repeat: no-repeat;
+    height: 200px;
+}
+.evenimg {
+    background-image: url(../images/feature3bb.svg);
+    background-size: 200px;
+    width: 350px;
+    margin-left: 200px;
+    background-repeat: no-repeat;
+    height: 200px;
+}
+.l {
+    margin-right: 300px;
+}
+.r {
+    margin-right: 50px;
+}

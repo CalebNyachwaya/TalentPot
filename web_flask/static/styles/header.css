@@ -1,0 +1,71 @@
+header {
+    height: 70px;
+    background-color: lightblue;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid blue;
+}
+
+.navigation-bar {
+    width: 50%;
+    height: 70px;
+    display: flex;
+    justify-content: end;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.navigation-bar a:link,
+.navigation-bar a:visited {
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+    color: #0e1152;
+    position: relative;
+}
+.navigation-bar a::after {
+    /* content: ""; Create a content box (the dot) */
+    /* position: absolute; */
+    /* left: 50%; Center the dot horizontally */
+    /* bottom: -18px; Move it below the link (adjust this value as needed) */
+    /* transform: translateX(-50%); */
+    width: 8px;
+    height: 8px;
+    background-color: transparent; /* Initially transparent */
+    /* border-radius: 50%; */
+    transition: background-color 0.2s; /* Add a smooth transition effect for visibility */
+}
+
+.navigation-bar a:hover::after {
+    background-color: #f96d28; /* Make the dot red on hover */
+}
+
+.navigation-bar a.exclude-dot::after {
+    background-color: transparent; /* Exclude the "exclude-dot" link from the red dot effect */
+}
+
+.container {
+    width: 700px;
+    border-radius: 30px;
+    align-self: center;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer {
+    width: 100%;
+    height: 30px;
+    border-top: 1px solid blue;
+}
+footer p {
+    text-align: center;
+    margin-top: 10px;
+}
+#sub {
+    border-radius: 30px;
+    width: 100px;
+}
