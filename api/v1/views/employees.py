@@ -30,7 +30,7 @@ def get_employees(company):
         dict_employees = {}
     return jsonify(list_employees)
 
-@app_views.route('/employees/<company>', methods=['POST'], strict_slashes=False)
+@app_views.route('/add/employees/<company>', methods=['POST'], strict_slashes=False)
 def post_employees(company):
     """To add employee of a company to the db"""
     data = request.get_json()

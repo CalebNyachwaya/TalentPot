@@ -39,16 +39,16 @@
 	  <a class="btn btn-big" id="addUserButton" href="http://www.calebcodes.tech/add">Add User</a>
 	</div>
       </section>
-      <form id="DeleteUserForm" class="delete_form">
+      <form id="deleteUserForm" method="delete" class="delete_form">
 	<h2>Delete User</h2>
 	<label for="email">Email:</label>
-	<input type="email" name="email" id="email" required /> <br />
+	<input type="email" id="email" required /> <br />
 	<label for="password">Password:</label>
-	<input type="password" name="password" id="password" required />
+	<input type="password" id="password" required />
 	<br />
 	<label for="company">Company:</label>
-	<input type="text" name="company" id="company" required /> <br />
-	<button type="submit" id="dsub" class="btn btn-big">Delete</button>
+	<input type="text" id="company" required /> <br />
+	<button type="submit" class="btn btn-big">Delete</button>
       </form>
     </div>
     <footer>
