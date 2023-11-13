@@ -26,5 +26,5 @@
 		alert("Employee added sucessfully");
 	    })
 	event.preventDefault();
-	})
     })
+})
