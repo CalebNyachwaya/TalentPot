@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $("#modifyUserForm").on("submit", function (event) {
-	        const api = "http://" + "calebcodes.tech/api/v1/modify/employees/";
+	const api = "http://" + "calebcodes.tech/api/v1/modify/employees/";
 	const comp = $("#company".val());
 	const pwd = $("#password".val());
 	const email = $("#email".val());
