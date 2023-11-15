@@ -27,7 +27,7 @@ $(document).ready(function () {
 	    })
 	event.preventDefault();
     })
-$("#modifyUserForm").on("submit", function (event) {
+    $("#modifyUserForm").on("submit", function (event) {
         const api = "http://" + "calebcodes.tech/api/v1/employees/";
         const comp = $("#company".val());
         $.ajax({
@@ -53,7 +53,7 @@ $("#modifyUserForm").on("submit", function (event) {
             })
         event.preventDefault();
     })
-$("#deleteUserForm").on("submit", function (event) {
+    $("#deleteUserForm").on("submit", function (event) {
         const api = "http://" + "calebcodes.tech/api/v1/employees/";
         const comp = $("#company".val());
         $.ajax({
