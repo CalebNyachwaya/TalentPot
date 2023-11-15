@@ -83,9 +83,9 @@ def get_dept_employees(company, dept):
             dept_list.append(c)
     return jsonify(dept_list)
 
-@app_views.route('/modify/employees/<company>/<password>/<email>', methods=['DELETE', 'PUT'],
+@app_views.route('/modify/employees/<company>', methods=['DELETE', 'PUT'],
                  strict_slashes=False)
-def employee_with_id(company, password, email):
+def employee_with_id(company):
     """
         employees route that handles http requests with ID given
     """
@@ -94,15 +94,17 @@ def employee_with_id(company, password, email):
         abort(404, 'Not found')
 
     if request.method == 'DELETE':
+        req_json = request.get_json()
+        if req_json is None:
+            abort(400, 'Not a JSON')
         for a in employee_obj:
             emp_obj = a.to_dict()
-            if emp_obj["email"] == email:
-                if emp_obj["company"] == company:
-                    if emp_obj["password"] == password:
-                        storage.delete(a)
-                        storage.save()
+            if req_json["email"] == emp_obj["email"]:
+                if emp_obj["company"] == req_json["company"]:
+                    storage.delete(a)
+                    storage.save()
 
-                        return jsonify({}), 200
+                    return jsonify({}), 200
                 else:
                     abort(404, 'Not a company member')
             emp_obj = {}
@@ -118,13 +120,12 @@ def employee_with_id(company, password, email):
                 dct[arr] = brr
         for b in employee_obj:
             emp_obj = b.to_dict()
-            if emp_obj["email"] == employee_id:
-                if emp_obj["company"] == company:
-                    if emp_obj["password"] == password:
-                        for x, y in dct.items():
-                            setattr(b, x, y)
-                            storage.save()
-                        return make_response(jsonify(b.to_dict()), 200)
+            if emp_obj["email"] == req_json["email"]:
+                if emp_obj["company"] == req_json["company"]:
+                    for x, y in dct.items():
+                        setattr(b, x, y)
+                        storage.save()
+                    return make_response(jsonify(b.to_dict()), 200)
                 else:
                     abort(404, 'Not a company member')
             emp_obj = {}
