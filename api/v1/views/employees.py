@@ -83,7 +83,7 @@ def get_dept_employees(company, dept):
             dept_list.append(c)
     return jsonify(dept_list)
 
-@app_views.route('/employees/<company>/<password>/<email>', methods=['DELETE', 'PUT'],
+@app_views.route('/modify/employees/<company>/<password>/<email>', methods=['DELETE', 'PUT'],
                  strict_slashes=False)
 def employee_with_id(company, password, email):
     """
