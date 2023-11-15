@@ -30,8 +30,11 @@ $(document).ready(function () {
     $("#modifyUserForm").on("submit", function (event) {
         const api = "http://" + "calebcodes.tech/api/v1/employees/";
         const comp = $("#company".val());
+        const pwd = $("#password".val());
+        const email = $("#email".val());
+        const st = "/";
         $.ajax({
-            url: api + comp,
+            url: api + comp + st + pwd + st + email,
             type: "PUT",
             data: JSON.stringify({
                 company: $("#company").val(),
