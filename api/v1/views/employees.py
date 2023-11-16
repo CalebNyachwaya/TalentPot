@@ -83,9 +83,9 @@ def get_dept_employees(company, dept):
             dept_list.append(c)
     return jsonify(dept_list)
 
-@app_views.route('/modify/employees/<company>', methods=['DELETE', 'PUT'],
+@app_views.route('/modify/employees/<company>/<email>', methods=['DELETE', 'PUT'],
                  strict_slashes=False)
-def employee_with_id(company):
+def employee_with_id(company, email):
     """
         employees route that handles http requests with ID given
     """
@@ -99,10 +99,11 @@ def employee_with_id(company):
             abort(400, 'Not a JSON')
         for a in employee_obj:
             emp_obj = a.to_dict()
-            if req_json["email"] == emp_obj["email"]:
-                if emp_obj["company"] == req_json["company"]:
-                    storage.delete(a)
-                    storage.save()
+            for x, y in emp_obj.items():
+                if email == y:
+                    if emp_obj["company"] == req_json["company"]:
+                        storage.delete(a)
+                        storage.save()
 
                     return jsonify({}), 200
                 else:
@@ -120,13 +121,11 @@ def employee_with_id(company):
                 dct[arr] = brr
         for b in employee_obj:
             emp_obj = b.to_dict()
-            if emp_obj["email"] == req_json["email"]:
-                if emp_obj["company"] == req_json["company"]:
+            for x, y in emp_obj.items():
+                if y == email:
                     for x, y in dct.items():
                         setattr(b, x, y)
-                        storage.save()
+                    storage.save()
                     return make_response(jsonify(b.to_dict()), 200)
-                else:
-                    abort(404, 'Not a company member')
             emp_obj = {}
         abort(404, 'Not found..')
