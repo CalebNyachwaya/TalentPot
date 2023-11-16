@@ -1,4 +1,3 @@
-$(document).ready(function () {
     $("#modifyUserForm").on("submit", function (event) {
 	const api = "http://" + "calebcodes.tech/api/v1/modify/employees/";
 	const comp = $("#company".val());
@@ -26,4 +25,3 @@ $(document).ready(function () {
 	    })
 	event.preventDefault();
     })
-})
