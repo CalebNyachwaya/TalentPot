@@ -1,4 +1,5 @@
-    $("#modifyUserForm").on("submit", function (event) {
+$(document).ready(function () {
+    $("#Save").click(function () {
 	const api = "http://" + "calebcodes.tech/api/v1/modify/employees/";
 	const comp = $("#company".val());
 	const eml = $("#email".val());
@@ -25,3 +26,4 @@
 	    })
 	event.preventDefault();
     })
+})
