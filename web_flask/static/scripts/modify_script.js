@@ -1,9 +1,10 @@
 $(document).ready(function () {
-    $("#deleteUserForm").on("submit", function (event) {
+    $("#modifyUserForm").on("submit", function (event) {
 	const api = "http://" + "calebcodes.tech/api/v1/modify/employees/";
 	const comp = $("#company".val());
+	const eml = $("#email".val());
 	$.ajax({
-	    url: api + comp,
+	    url: api + comp + "/" + eml,
 	    type: "PUT",
 	    data: JSON.stringify({
 		company: $("#company").val(),
