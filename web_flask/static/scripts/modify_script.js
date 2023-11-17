@@ -23,7 +23,6 @@ $(document).ready(function () {
 	})
 	    .done(function (data) {
 		alert("Employee modified sucessfully");
-	    })
-	event.preventDefault();
-    })
-})
+	    });
+    });
+});
