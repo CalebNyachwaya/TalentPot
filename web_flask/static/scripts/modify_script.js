@@ -4,7 +4,7 @@ $(document).ready(function () {
 	const comp = $("#company").val();
 	$.ajax({
 	    url: api + comp,
-	    type: 'POST',
+	    type: 'PUT',
 	    data: JSON.stringify({
 		company: $('#company').val(),
 		email: $('#email').val(),
