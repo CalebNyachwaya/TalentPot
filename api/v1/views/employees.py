@@ -111,7 +111,7 @@ def employee_with_id(company):
     abort(404, 'Not found..')
 @app_views.route('/delete/employees/<company>/', methods=['DELETE'],
                  strict_slashes=False)
-def employee_with_id(company):
+def employee_delete(company):
     """
     """
     employee_obj = storage.all(Employee).values()
