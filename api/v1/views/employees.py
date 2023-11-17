@@ -92,7 +92,7 @@ def employee_with_id(company):
     employee_obj = storage.all(Employee).values()
     if employee_obj is None:
         abort(404, 'Not found')
-"""
+    """
     if request.method == 'DELETE':
         req_json = request.get_json()
         if req_json is None:
@@ -110,11 +110,11 @@ def employee_with_id(company):
                     abort(404, 'Not a company member')
             emp_obj = {}
         abort(404, 'Not found..')
-"""
-        req_json = request.get_json()
-        dct = {}
-        if req_json is None:
-            abort(400, 'Not a JSON')
+    """
+    req_json = request.get_json()
+    dct = {}
+    if req_json is None:
+        abort(400, 'Not a JSON')
         for arr, brr in  req_json.items():
             if len(brr) > 2:
                 dct[arr] = brr
