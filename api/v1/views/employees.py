@@ -83,7 +83,7 @@ def get_dept_employees(company, dept):
             dept_list.append(c)
     return jsonify(dept_list)
 
-@app_views.route('/modify/employees/<company>/<email>', methods=['DELETE', 'PUT'],
+@app_views.route('/modify/employees/<company>/<email>', methods=['DELETE', 'POST'],
                  strict_slashes=False)
 def employee_with_id(company, email):
     """
@@ -111,7 +111,7 @@ def employee_with_id(company, email):
             emp_obj = {}
         abort(404, 'Not found..')
 
-    if request.method == 'PUT':
+    if request.method == 'POST':
         req_json = request.get_json()
         dct = {}
         if req_json is None:

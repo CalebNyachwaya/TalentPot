@@ -1,11 +1,11 @@
 $('document').ready(function () {
-    $("INPUT#Save").click(function () {
+    $("#modifyUserForm").on("submit", function (event) {
 	const api = "http://" + "calebcodes.tech/api/v1/modify/employees/";
 	const comp = $("#company".val());
 	const eml = $("#email".val());
 	$.ajax({
 	    url: api + comp + "/" + eml,
-	    type: "PUT",
+	    type: "POST",
 	    data: JSON.stringify({
 		company: $("INPUT#company").val(),
 		email: $("INPUT#email").val(),
@@ -24,5 +24,6 @@ $('document').ready(function () {
 	    .done(function (data) {
 		alert("Employee modified sucessfully");
 	    });
+	    event.preventDefault();
     });
 });
