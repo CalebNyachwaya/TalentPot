@@ -109,6 +109,7 @@ def employee_with_id(company):
                 return make_response(jsonify(b.to_dict()), 200)
         emp_obj = {}
     abort(404, 'Not found..')
+
 @app_views.route('/delete/employees/<company>/', methods=['DELETE'],
                  strict_slashes=False)
 def employee_delete(company):
@@ -124,11 +125,8 @@ def employee_delete(company):
         emp_obj = a.to_dict()
         for x, y in emp_obj.items():
             if req_json["email"] == y:
-                if y == req_json["email"]:
-                    storage.delete(a)
-                    storage.save()
-                    return jsonify({}), 200
-                else:
-                    abort(404, 'Not a company member')
+                storage.delete(a)
+                storage.save()
+                return jsonify({}), 200
         emp_obj = {}
     abort(404, 'Not found..')
