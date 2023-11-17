@@ -115,16 +115,16 @@ def employee_with_id(company):
     dct = {}
     if req_json is None:
         abort(400, 'Not a JSON')
-        for arr, brr in  req_json.items():
-            if len(brr) > 2:
-                dct[arr] = brr
-        for b in employee_obj:
-            emp_obj = b.to_dict()
-            for x, y in emp_obj.items():
-                if y == req_json['email']:
-                    for x, y in dct.items():
-                        setattr(b, x, y)
-                    storage.save()
-                    return make_response(jsonify(b.to_dict()), 200)
-            emp_obj = {}
-        abort(404, 'Not found..')
+    for arr, brr in  req_json.items():
+        if len(brr) > 2:
+            dct[arr] = brr
+    for b in employee_obj:
+        emp_obj = b.to_dict()
+        for x, y in emp_obj.items():
+            if y == req_json['email']:
+                for ab, ac in dct.items():
+                    setattr(b, ab, ac)
+                storage.save()
+                return make_response(jsonify(b.to_dict()), 200)
+        emp_obj = {}
+    abort(404, 'Not found..')
