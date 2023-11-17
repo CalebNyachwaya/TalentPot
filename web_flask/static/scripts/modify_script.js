@@ -2,8 +2,6 @@ $(document).ready(function () {
     $('#modifyUserForm').on('submit', function (event) {
 	const api = "http://" + "calebcodes.tech/api/v1/modify/employees/";
 	const comp = $("#company").val();
-
-	const eml = $("#email".val());
 	$.ajax({
 	    url: api + comp,
 	    type: 'POST',
