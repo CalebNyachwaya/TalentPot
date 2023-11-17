@@ -124,7 +124,7 @@ def employee_delete(company):
         emp_obj = a.to_dict()
         for x, y in emp_obj.items():
             if req_json["email"] == y:
-                if emp_obj["company"] == req_json["company"]:
+                if y == req_json["email"]:
                     storage.delete(a)
                     storage.save()
                     return jsonify({}), 200
