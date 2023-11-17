@@ -83,16 +83,16 @@ def get_dept_employees(company, dept):
             dept_list.append(c)
     return jsonify(dept_list)
 
-@app_views.route('/modify/employees/<company>/<email>', methods=['DELETE', 'POST'],
+@app_views.route('/modify/employees/<company>/', methods=['POST'],
                  strict_slashes=False)
-def employee_with_id(company, email):
+def employee_with_id(company):
     """
         employees route that handles http requests with ID given
     """
     employee_obj = storage.all(Employee).values()
     if employee_obj is None:
         abort(404, 'Not found')
-
+"""
     if request.method == 'DELETE':
         req_json = request.get_json()
         if req_json is None:
@@ -110,8 +110,7 @@ def employee_with_id(company, email):
                     abort(404, 'Not a company member')
             emp_obj = {}
         abort(404, 'Not found..')
-
-    if request.method == 'POST':
+"""
         req_json = request.get_json()
         dct = {}
         if req_json is None:
@@ -122,7 +121,7 @@ def employee_with_id(company, email):
         for b in employee_obj:
             emp_obj = b.to_dict()
             for x, y in emp_obj.items():
-                if y == email:
+                if y == req_json['email']:
                     for x, y in dct.items():
                         setattr(b, x, y)
                     storage.save()

@@ -5,11 +5,9 @@ $(document).ready(function () {
 
 	const eml = $("#email".val());
 	$.ajax({
-	    url: api + comp + "/" + eml,
+	    url: api + comp,
 	    type: 'POST',
 	    data: JSON.stringify({
-		first_name: $('#first_name').val(),
-		last_name: $('#last_name').val(),
 		company: $('#company').val(),
 		email: $('#email').val(),
 		password: $('#password').val(),
