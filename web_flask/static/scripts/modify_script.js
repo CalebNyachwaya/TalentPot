@@ -1,29 +1,32 @@
-$('document').ready(function () {
-    $("#modifyUserForm").on("submit", function (event) {
+$(document).ready(function () {
+    $('#modifyUserForm').on('submit', function (event) {
 	const api = "http://" + "calebcodes.tech/api/v1/modify/employees/";
-	const comp = $("#company".val());
+	const comp = $("#company").val();
+
 	const eml = $("#email".val());
 	$.ajax({
 	    url: api + comp + "/" + eml,
-	    type: "POST",
+	    type: 'POST',
 	    data: JSON.stringify({
-		company: $("INPUT#company").val(),
-		email: $("INPUT#email").val(),
-		password: $("INPUT#password").val(),
-		DOB: $("INPUT#DOB").val(),
-		phone: $("INPUT#phone").val(),
-		city: $("INPUT#city").val(),
-		address: $("INPUT#address").val(),
-		country: $("INPUT#country").val(),
-		dept: $("INPUT#dept").val(),
-		position: $("INPUT#position").val()
+		first_name: $('#first_name').val(),
+		last_name: $('#last_name').val(),
+		company: $('#company').val(),
+		email: $('#email').val(),
+		password: $('#password').val(),
+		DOB: $('#DOB').val(),
+		phone: $('#phone').val(),
+		city: $('#city').val(),
+		address: $('#address').val(),
+		country: $('#country').val(),
+		dept: $('#dept').val(),
+		position: $('#position').val()
 	    }),
-	    contentType: "application/json",
-	    dataType: "json"
+	    contentType: 'application/json',
+	    dataType: 'json',
 	})
 	    .done(function (data) {
 		alert("Employee modified sucessfully");
-	    });
-	    event.preventDefault();
-    });
-});
+	    })
+	event.preventDefault();
+    })
+})
