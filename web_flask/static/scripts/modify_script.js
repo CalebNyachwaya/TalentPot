@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$('document').ready(function () {
     $("INPUT#Save").click(function () {
 	const api = "http://" + "calebcodes.tech/api/v1/modify/employees/";
 	const comp = $("#company".val());
