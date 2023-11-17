@@ -92,25 +92,6 @@ def employee_with_id(company):
     employee_obj = storage.all(Employee).values()
     if employee_obj is None:
         abort(404, 'Not found')
-    """
-    if request.method == 'DELETE':
-        req_json = request.get_json()
-        if req_json is None:
-            abort(400, 'Not a JSON')
-        for a in employee_obj:
-            emp_obj = a.to_dict()
-            for x, y in emp_obj.items():
-                if email == y:
-                    if emp_obj["company"] == req_json["company"]:
-                        storage.delete(a)
-                        storage.save()
-
-                    return jsonify({}), 200
-                else:
-                    abort(404, 'Not a company member')
-            emp_obj = {}
-        abort(404, 'Not found..')
-    """
     req_json = request.get_json()
     dct = {}
     if req_json is None:
@@ -141,14 +122,13 @@ def employee_with_id(company):
         abort(400, 'Not a JSON')
     for a in employee_obj:
         emp_obj = a.to_dict()
-            for x, y in emp_obj.items():
-                if req_json["email"] == y:
-                    if emp_obj["company"] == req_json["company"]:
-                        storage.delete(a)
-                        storage.save()
-
-                        return jsonify({}), 200
-                    else:
-                        abort(404, 'Not a company member')
+        for x, y in emp_obj.items():
+            if req_json["email"] == y:
+                if emp_obj["company"] == req_json["company"]:
+                    storage.delete(a)
+                    storage.save()
+                    return jsonify({}), 200
+                else:
+                    abort(404, 'Not a company member')
         emp_obj = {}
     abort(404, 'Not found..')
