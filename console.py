@@ -13,7 +13,7 @@ classes = {"BaseModel": BaseModel, "Employee": Employee}
 
 class TPCommand(cmd.Cmd):
     """ TALENTPOT console """
-    prompt = '(hbnb) '
+    prompt = '(TalentPot) '
 
     def do_EOF(self, arg):
         """Exits console"""
