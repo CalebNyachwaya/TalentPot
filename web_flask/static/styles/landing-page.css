@@ -46,13 +46,6 @@ body {
   width: 700px;
   border-radius: 30px;
 }
-.main_text {
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  border: solid 2px green;
-}
 
 footer {
   width: 100%;

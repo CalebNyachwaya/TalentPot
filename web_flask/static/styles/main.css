@@ -12,27 +12,38 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.landing-content {
-  margin-left: 120px;
+.main_text {
+  height: 65%;
+  /* display: flex;
+  flex-direction: column; */
+  width: 100%;
+  border: solid 2px green;
 }
 
-.headline {
-  margin-top: 20px;
-  text-decoration: solid;
-  text-shadow: gray;
-  width: 350px;
-  text-align: center;
-  height: 100px;
-  margin-left: 10px;
+@media screen and (max-height: 1200px) {
+  .headline {
+    margin-top: 20px;
+    border: solid 2px green;
+    font-weight: 700;
+    font-size: 4vw;
+  }
 }
 
+@media screen and (max-height: 700px) {
+  .headline {
+    margin-top: 20px;
+    border: solid 2px green;
+    font-weight: 700;
+    font-size: 30px;
+  }
+}
 .landing-text {
-  width: 300px;
+  width: 50%;
   height: 100px;
-  text-align: center;
-  margin-left: 20px;
+  font-weight: 700;
   margin-bottom: 50px;
   margin-top: 20px;
+  border: solid 2px yellow;
 }
 
 /* button */
