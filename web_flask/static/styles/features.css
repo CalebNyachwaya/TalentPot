@@ -1,24 +1,58 @@
+.features {
+  background-color: skyblue;
+  border-radius: 30px;
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: solid 2px #da77f2;
+}
+
 .features h1 {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .features img {
-    height: 200px;
-    width: auto;
+  height: 200px;
+  width: auto;
 }
 
 .featuresOdd {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 700px;
-    height: 200px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 34%;
+  border: #ffec99 solid 2px;
 }
 
 .featuresEven {
-    display: flex;
-    height: 200px;
-    align-items: center;
-    width: 700px;
-    flex-direction: row;
+  display: flex;
+  height: 32%;
+  align-items: center;
+  width: 100%;
+  border: #ffc078 solid 2px;
+}
+
+.odd1img {
+  background-image: url(../images/feature4bb.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 90%;
+  width: inherit;
+  border: solid 1px #aeaeae;
+}
+.odd2img {
+  background-image: url(../images/feature2bb.svg);
+  background-size: contain;
+  width: 350px;
+  background-repeat: no-repeat;
+  height: 200px;
+}
+.evenimg {
+  background-image: url(../images/feature3bb.svg);
+  background-size: 200px;
+  width: 350px;
+  margin-left: 200px;
+  background-repeat: no-repeat;
+  height: 200px;
 }
