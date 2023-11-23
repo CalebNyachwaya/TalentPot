@@ -6,7 +6,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0 80px;
+  padding: 0 5%;
 }
 
 .head_logo {
@@ -20,10 +20,10 @@ header {
 .navigation-bar {
   width: 50%;
   display: flex;
-  justify-content: end;
+  justify-content: space-around;
   flex-direction: row;
   align-items: center;
-  margin-right: 10px;
+  /* border: solid 2px #da77f2; */
 }
 
 .navigation-bar a:link,
@@ -35,20 +35,20 @@ header {
   position: relative;
 }
 .navigation-bar a::after {
-  /* content: ""; Create a content box (the dot) */
-  /* position: absolute; */
-  /* left: 50%; Center the dot horizontally */
-  /* bottom: -18px; Move it below the link (adjust this value as needed) */
-  /* transform: translateX(-50%); */
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -18px;
+  transform: translateX(-50%);
   width: 8px;
   height: 8px;
   background-color: transparent; /* Initially transparent */
-  /* border-radius: 50%; */
-  transition: background-color 0.2s; /* Add a smooth transition effect for visibility */
+  border-radius: 50%;
+  transition: background-color 0.2s;
 }
 
 .navigation-bar a:hover::after {
-  background-color: #f96d28; /* Make the dot red on hover */
+  background-color: #f96d28; /* Make the dot orange on hover */
 }
 
 .navigation-bar a.exclude-dot::after {
