@@ -46,6 +46,17 @@
             from onboarding to data updates and more
           </div>
           <div><a class="btn btn-big" href="#">Sign in</a></div>
+          <div id="screen-width"></div>
+
+          <script>
+            function screen() {
+              mywidth = window.innerWidth;
+              document.getElementById("screen-width").innerHTML =
+                "width:" + mywidth + "px";
+            }
+            window.onresize = screen;
+            window.onload = screen;
+          </script>
         </div>
       </div>
     </div>

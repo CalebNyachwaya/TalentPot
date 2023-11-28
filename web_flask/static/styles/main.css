@@ -40,9 +40,7 @@
 }
 
 .btn-big {
-  /* width: 50px; */
   padding: 16px 32px;
-  margin-bottom: 700px;
   font-weight: 600;
 }
 
@@ -67,4 +65,12 @@
   flex-direction: column;
   height: 600px;
   width: 300px;
+}
+
+#screen-width {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000000b0;
 }
