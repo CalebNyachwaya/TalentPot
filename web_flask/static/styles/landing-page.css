@@ -27,23 +27,15 @@ body {
 }
 
 .main-container {
+  position: relative;
   height: 88%;
   width: 100%;
   padding: 0 5%;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   /* border: solid 4px #aeaeae; */
 }
 
-.main-container-test {
-  height: 600px;
-  display: flex;
-  background-color: aliceblue;
-  align-self: center;
-  flex-direction: column;
-  width: 700px;
-  border-radius: 30px;
-}
 .main-container-test-add {
   height: 1000px;
   display: flex;
