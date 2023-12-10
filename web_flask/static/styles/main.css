@@ -1,16 +1,15 @@
 @media screen and (max-height: 1200px) {
   .headline {
     margin-top: 20px;
-    /* border: solid 1px #e5dbff; */
     font-weight: 700;
     font-size: 3.4vw;
     width: 45%;
     line-height: 1;
-    letter-spacing: -1px;
+    letter-spacing: -1.5px;
   }
 }
 
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 600px) {
   .headline {
     margin-top: 20px;
     /* border: solid 1px #e5dbff; */
@@ -33,12 +32,17 @@
   font-weight: 400;
   font-size: 1vw;
   margin-bottom: 50px;
-  margin-top: 20px;
+  margin-top: 25px;
   font-size: 18px;
   /* border: solid 2px yellow; */
   line-height: 1.7;
 }
 
+@media screen and (max-width: 1200px) {
+  .landing-text {
+    font-size: 16px;
+  }
+}
 /* button */
 .btn:link,
 .btn:visited {
