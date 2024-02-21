@@ -11,15 +11,22 @@ header {
 }
 
 .head_logo {
-  background-image: url("../images/TalentPotlogo.svg");
-  height: 50%;
+  height: 50px;
   width: 50%;
 
   background-repeat: no-repeat;
 }
 
+.head_logo2 {
+  background-image: url("../images/TalentPotlogo.svg");
+  height: 100%;
+  width: auto;
+
+  background-repeat: no-repeat;
+}
 .navigation-bar {
   width: 50%;
+  min-width: 470px;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
