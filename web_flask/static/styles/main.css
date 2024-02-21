@@ -9,15 +9,19 @@
   }
 }
 
-@media screen and (max-height: 600px) {
+.headline {
+  margin-top: 20px;
+}
+
+/* @media screen and (max-height: 600px) {
   .headline {
     margin-top: 20px;
-    /* border: solid 1px #e5dbff; */
+    border: solid 1px #e5dbff;
     font-weight: 700;
     font-size: 30px;
     width: 45%;
   }
-}
+} */
 
 .main_text {
   position: absolute;
@@ -41,6 +45,18 @@
 @media screen and (max-width: 1200px) {
   .landing-text {
     font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .headline {
+    font-size: 36px;
+  }
+
+  @media screen and (min-width: 900px) {
+    .headline {
+      font-size: 48px;
+    }
   }
 }
 /* button */

@@ -218,6 +218,7 @@ body {
 
 .container {
   height: 100vh;
+  min-height: 550px;
   background-image: url("../images/landing-background.svg");
   background-repeat: no-repeat;
   background-position: center;
