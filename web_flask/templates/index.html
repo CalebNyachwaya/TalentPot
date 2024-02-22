@@ -53,12 +53,16 @@
           </div>
           <div><a class="btn btn-big" href="#">Sign in</a></div>
           <div id="screen-width"></div>
+          <div id="screen-height"></div>
 
           <script>
             function screen() {
               mywidth = window.innerWidth;
+              myheight = window.innerHeight;
               document.getElementById("screen-width").innerHTML =
                 "width:" + mywidth + "px";
+              document.getElementById("screen-height").innerHTML =
+                "height:" + myheight + "px";
             }
             window.onresize = screen;
             window.onload = screen;
@@ -97,7 +101,7 @@
       </div>
     </div>
     <footer>
-      <div>Copyright © TalentPot. All Rights Reserved</div>
+      <p>Copyright © TalentPot. All Rights Reserved</p>
     </footer>
   </body>
 </html>

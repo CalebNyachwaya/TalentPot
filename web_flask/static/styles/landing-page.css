@@ -163,6 +163,7 @@ template {
 
   --accent-color: #f96d28;
   --grey-color: #0e1152;
+  --footer-color: #0e1152c4;
 
   --background-color1: #cdffd8;
   --background-color2: #94b9ff;
@@ -218,7 +219,7 @@ body {
 
 .container {
   height: 100vh;
-  min-height: 550px;
+  min-height: 600px;
   background-image: url("../images/landing-background.svg");
   background-repeat: no-repeat;
   background-position: center;
