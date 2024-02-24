@@ -37,8 +37,11 @@
   width: 45%;
   line-height: 1;
   letter-spacing: -1.5px;
+  width: 570px;
 }
-
+.line2 {
+  display: none;
+}
 .landing-text {
   width: 40%;
   font-weight: 400;
@@ -50,19 +53,19 @@
 }
 
 .main_text {
+  margin-bottom: 20px;
+}
+/* .main_text {
   position: absolute;
   top: 45%;
   transform: translateY(-50%);
-  /* left: 50%;
-  transform: translateX(-50%); */
-}
+} */
 
-@media screen and (max-width: 1200px) {
+/* @media screen and (max-width: 1200px) {
   .landing-text {
     font-size: 16px;
-    /* border: solid 2px yellow; */
   }
-}
+} */
 
 /* button */
 .btn:link,
@@ -126,31 +129,72 @@
   .headline {
     font-size: 5rem;
     width: 50%;
+    width: 510px;
     /* border: solid 2px yellow; */
   }
   .landing-text {
     width: 45%;
+    font-size: 1.9rem;
+    line-height: 1.7;
+  }
+}
+
+@media screen and (max-width: 1199.98px) {
+  .headline {
+    font-size: 5rem;
+    width: 60%;
+    width: 510px;
+  }
+  .landing-text {
+    width: 50%;
     font-size: 1.6rem;
     line-height: 1.7;
   }
 }
 
-// Large devices (desktops, less than 1200px)
-@media (max-width: 1199.98px) {
-  ...;
+@media screen and (max-width: 991.98px) {
+  /* .main_text {
+    position: absolute;
+    top: 25%;
+    transform: translateY(-50%);
+  } */
+  .main-container {
+    align-items: start;
+    padding: 2% 6%;
+    /* border: solid 2px yellow; */
+  }
+
+  .headline {
+    /* font-size: 5rem; */
+    font-size: 3.8rem;
+    width: 100%;
+    /* width: 510px; */
+  }
+  .landing-text {
+    width: 50%;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    padding-top: 10px;
+  }
+
+  .featuresEven {
+    padding: 0 0 0 6%;
+  }
+
+  .features-text h5 {
+    font-size: 0.5rem;
+  }
 }
 
-// Medium devices (tablets, less than 992px)
-@media (max-width: 991.98px) {
-  ...;
+@media screen and (max-width: 767.98px) {
+  .headline {
+    font-size: 2.9rem;
+  }
 }
 
-// Small devices (landscape phones, less than 768px)
-@media (max-width: 767.98px) {
-  ...;
-}
-
-// X-Small devices (portrait phones, less than 576px)
-@media (max-width: 575.98px) {
-  ...;
+@media screen and (max-width: 575.98px) {
+  .headline {
+    font-size: 2.5rem;
+    width: 100%;
+  }
 }
