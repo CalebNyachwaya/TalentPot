@@ -63,6 +63,8 @@ class BaseModel:
         new_dict = self.__dict__.copy()
         if "created_at" in new_dict:
             new_dict["created_at"] = new_dict["created_at"].strftime(time)
+        if "session_created_at" in new_dict:
+            new_dict["session_created_at"] = new_dict["session_created_at"].strftime(time)
         if "updated_at" in new_dict:
             new_dict["updated_at"] = new_dict["updated_at"].strftime(time)
         new_dict["__class__"] = self.__class__.__name__

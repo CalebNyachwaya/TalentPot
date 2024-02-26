@@ -2,13 +2,14 @@
 """
 Contains the class DBStorage
 """
-
+from sqlalchemy.exc import InvalidRequestError
+from sqlalchemy.orm.exc import NoResultFound
 import models
 from models.base_model import BaseModel, Base
 from models.employee import Employee
 from os import getenv
 import sqlalchemy
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, tuple_
 from sqlalchemy.orm import scoped_session, sessionmaker
 
 classes = {"Employee": Employee}
@@ -26,6 +27,15 @@ class DBStorage:
         TP_MYSQL_HOST = getenv('TP_MYSQL_HOST')
         TP_MYSQL_DB = getenv('TP_MYSQL_DB')
         TP_ENV = getenv('TP_ENV')
+        sess_dur = getenv("SESSION_DURATION")
+        if sess_dur is None:
+            self.session_duration = 0
+        else:
+            try:
+                sess_val = int(sess_dur)
+                self.session_duration = sess_val
+            except Exception:
+                self.session_duration = 0
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
                                       format(TP_MYSQL_USER,
                                              TP_MYSQL_PWD,
@@ -47,11 +57,17 @@ class DBStorage:
 
     def new(self, obj):
         """add the object to the current database session"""
-        self.__session.add(obj)
+        try:
+            self.__session.add(obj)
+        except Exception:
+            self.__session.rollback()
 
     def save(self):
         """commit all changes of the current database session"""
-        self.__session.commit()
+        try:
+            self.__session.commit()
+        except Exception:
+            self.__session.rollback()
 
     def delete(self, obj=None):
         """delete from the current database session obj if not None"""
@@ -98,3 +114,50 @@ class DBStorage:
             count = len(models.storage.all(cls).values())
 
         return count
+
+    def add_user(self, email: str, hashed_password: str) -> User:
+        """method to add user via email and hashd
+password and saved to db"""
+        usr = Employee(email=email, hashed_password=hashed_password)
+        try:
+            self.__session.add(usr)
+            self.__session.commit()
+            return usr
+        except Exception:
+            self._session.rollback()
+        return None
+
+    def find_user_by(self, **kwargs) -> User:
+        """find a user by their email or entered keywrd"""
+        fields, values = [], []
+        for key, value in kwargs.items():
+            if hasattr(User, key):
+                fields.append(getattr(User, key))
+                values.append(value)
+            else:
+                raise InvalidRequestError()
+        result = self._session.query(User).filter(
+            tuple_(*fields).in_([tuple(values)])
+        ).first()
+        if result is None:
+            raise NoResultFound()
+        return result
+
+    def update_user(self, user_id: int, **kwargs) -> None:
+        """method to update user"""
+        """Updates a user based on a given id.
+        """
+        user = self.find_user_by(id=user_id)
+        if user is None:
+            return
+        update_source = {}
+        for key, value in kwargs.items():
+            if hasattr(User, key):
+                update_source[getattr(User, key)] = value
+            else:
+                raise ValueError()
+        self.__session.query(User).filter(User.id == user_id).update(
+            update_source,
+            synchronize_session=False,
+        )
+        self.__session.commit()
