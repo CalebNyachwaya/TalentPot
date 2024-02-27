@@ -37,7 +37,9 @@ header {
 .navigation-bar a:link,
 .navigation-bar a:visited {
   font-weight: 600;
-  font-size: 20px;
+  /* font-size: 20px;
+  font-size: 2rem; */
+  font-size: var(--nav-font-size);
   text-decoration: none;
   color: #0e1152;
   position: relative;
@@ -66,4 +68,33 @@ header {
 #sub {
   border-radius: 30px;
   width: 100px;
+}
+
+.checkbtn {
+  font-size: var(--nav-font-size);
+  cursor: pointer;
+  display: none;
+  justify-self: end;
+}
+
+#sticks {
+  display: none;
+}
+
+@media screen and (max-width: 991.98px) {
+  .checkbtn {
+    display: block;
+  }
+
+  .navigation-bar {
+    width: 100%;
+    position: fixed;
+    top: 100px;
+    height: 100vh;
+    left: 0;
+    align-items: start;
+    background: red;
+    flex-direction: column;
+    text-align: center;
+  }
 }
