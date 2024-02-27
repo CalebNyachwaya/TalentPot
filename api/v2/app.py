@@ -3,7 +3,7 @@
 from models import storage
 from api.v2.views import app_views
 from os import environ
-from flask import Flask, render_template, make_response, jsonify
+from flask import Flask, render_template, make_response, jsonify, abort, request
 from flask_cors import CORS
 from flasgger import Swagger
 from flasgger.utils import swag_from
@@ -25,20 +25,20 @@ def close_db(error):
 @app.before_request
 def filteringrequest():
     """function to filter out routes that dont need authentication"""
-    if auth is None:
+    if AUTH is None:
         return
     excluded_paths = [
-        '/api/v1/stat*',
-        '/api/v1/unauthorized/',
-        '/api/v1/forbidden/',
+        '/api/v2/',
+        '/api/v2/unauthorized/',
+        '/api/v2/forbidden/',
         '/api/v2/reset_password/',
         '/api/v2/users/',
-        'api/v2/sessions/'
+        '/api/v2/sessions/',
     ]
-    if not auth.require_auth(request.path, excluded_paths):
+    if not AUTH.require_auth(request.path, excluded_paths):
         return
 
-    if auth.session_cookie(
+    if AUTH.session_cookie(
             request) is None:
         abort(401)
 
@@ -90,5 +90,5 @@ if __name__ == "__main__":
     if not host:
         host = '0.0.0.0'
     if not port:
-        port = '5000'
+        port = '5001'
     app.run(host=host, port=port, threaded=True)

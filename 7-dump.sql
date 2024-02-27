@@ -29,19 +29,22 @@ DROP TABLE IF EXISTS `employees`;
 CREATE TABLE `employees` (
   `id` varchar(60) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `session_created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `first_name` varchar(128) NOT NULL,
-  `last_name` varchar(128) NOT NULL,
+  `first_name` varchar(128) NULL,
+  `last_name` varchar(128) NULL,
   `email` varchar(128) NOT NULL,
-  `password` varchar(128) NOT NULL,
-  `phone` varchar(128) NOT NULL,
-  `dept` varchar(128) NOT NULL,
-  `position` varchar(128) NOT NULL,
-  `DOB` varchar(128) NOT NULL,
-  `company` varchar(128) NOT NULL,
-  `address` varchar(128) NOT NULL,
-  `city` varchar(128) NOT NULL,
-  `country` varchar(128) NOT NULL,
+  `hashed_password` varchar(128) NOT NULL,
+  `phone` varchar(128) NULL,
+  `dept` varchar(128) NULL,
+  `position` varchar(128) NULL,
+  `DOB` varchar(128) NULL,
+  `company` varchar(128) NULL,
+  `address` varchar(128) NULL,
+  `city` varchar(128) NULL,
+  `session_id` varchar(250) NULL,
+  `reset_token` varchar(250) NULL,
+  `country` varchar(128) NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -49,12 +52,12 @@ CREATE TABLE `employees` (
 -- Dumping data for table `cities`
 --
 
-LOCK TABLES `employees` WRITE;
+/*LOCK TABLES `employees` WRITE;*/
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
 
-INSERT INTO `employees` VALUES ('521a55f4-7d82-47d9-b54c-a76916479545','2017-03-25 19:42:40','2017-03-25 19:42:40','Akron','poom','a@gmail.com','','5464785','finance','team-lead','12/may/1990','abc', 'ghihhdoiohod','Lagos','Nigeria'),('521a55f4-7d82-47d9-b54c-a76916479546','2017-03-25 19:42:40','2017-03-25 19:42:40','Douglas','yum','b@gmail.com','','546472266','finance','supervisor','2/may/1991','abc','khdhhuuou','Lagos','Nigeria'),('521a55f4-7d82-47d9-b54c-a76916479547','2017-03-25 19:42:40','2017-03-25 19:42:40','San Francisco','oop','yy@gmail.com','','546626286798','hr','worker','12/june/1993','xyz','ahxxhadhskdhhk','Nariobi','Kenya'),('521a55f4-7d82-47d9-b54c-a76916479548','2017-03-25 19:42:41','2017-03-25 19:42:41','Denver','wassy','qqy@gmail.com','','676689795464785','finance','team-lead','12/march/1980','xyz','hsjljklkjsj','Nariobi','Kenya');
+/*INSERT INTO `employees` VALUES ('521a55f4-7d82-47d9-b54c-a76916479545','2017-03-25 19:42:40','2017-03-25 19:42:40','Akron','poom','a@gmail.com','','5464785','finance','team-lead','12/may/1990','abc', 'ghihhdoiohod','Lagos','Nigeria'),('521a55f4-7d82-47d9-b54c-a76916479546','2017-03-25 19:42:40','2017-03-25 19:42:40','Douglas','yum','b@gmail.com','','546472266','finance','supervisor','2/may/1991','abc','khdhhuuou','Lagos','Nigeria'),('521a55f4-7d82-47d9-b54c-a76916479547','2017-03-25 19:42:40','2017-03-25 19:42:40','San Francisco','oop','yy@gmail.com','','546626286798','hr','worker','12/june/1993','xyz','ahxxhadhskdhhk','Nariobi','Kenya'),('521a55f4-7d82-47d9-b54c-a76916479548','2017-03-25 19:42:41','2017-03-25 19:42:41','Denver','wassy','qqy@gmail.com','','676689795464785','finance','team-lead','12/march/1980','xyz','hsjljklkjsj','Nariobi','Kenya');*/
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
-UNLOCK TABLES;
+/*UNLOCK TABLES;*/
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

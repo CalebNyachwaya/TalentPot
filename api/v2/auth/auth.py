@@ -8,7 +8,7 @@ from typing import Union, List, TypeVar
 import datetime
 import os
 from sqlalchemy.orm.exc import NoResultFound
-from user import User
+from models.employee import Employee
 
 
 
@@ -30,7 +30,7 @@ class Auth:
     def __init__(self):
         self._db = models.storage
 
-    def register_user(self, email: str, password: str) -> User:
+    def register_user(self, email: str, password: str) -> Employee:
         """method to hash pwd, create user and return user"""
         hsh_pwd = _hash_password(password)
         try:
@@ -62,7 +62,7 @@ class Auth:
             return None
         return None
 
-    def get_user_from_session_id(self, session_id: str) -> User:
+    def get_user_from_session_id(self, session_id: str) -> Employee:
         """return a user based on a session_id"""
         if session_id is None:
             return None
@@ -134,7 +134,7 @@ session in db to none"""
                 rout = []
         return True
 
-    def current_user(self, request=None) -> TypeVar('User'):
+    def current_user(self, request=None) -> TypeVar('Employee'):
         """that returns None - request will be the Flask request object"""
         if request is None:
             return None

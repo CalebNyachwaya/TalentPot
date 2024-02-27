@@ -2,6 +2,7 @@
 """
 Contains the class DBStorage
 """
+from datetime import datetime
 from sqlalchemy.exc import InvalidRequestError
 from sqlalchemy.orm.exc import NoResultFound
 import models
@@ -118,14 +119,18 @@ class DBStorage:
     def add_user(self, email: str, hashed_password: str) -> Employee:
         """method to add user via email and hashd
 password and saved to db"""
-        usr = Employee(email=email, hashed_password=hashed_password)
-        try:
-            self.__session.add(usr)
-            self.__session.commit()
-            return usr
-        except Exception:
-            self._session.rollback()
-        return None
+        dct = {}
+        dct['email'] = email
+        dct['hashed_password'] = hashed_password
+        usr = Employee(**dct)
+
+        usr.updated_at = datetime.utcnow()
+        self.__session.add(usr)
+        self.__session.commit()
+        return usr
+        """except Exception:
+            self.__session.rollback()
+        return None"""
 
     def find_user_by(self, **kwargs) -> Employee:
         """find a user by their email or entered keywrd"""
@@ -136,7 +141,7 @@ password and saved to db"""
                 values.append(value)
             else:
                 raise InvalidRequestError()
-        result = self._session.query(Employee).filter(
+        result = self.__session.query(Employee).filter(
             tuple_(*fields).in_([tuple(values)])
         ).first()
         if result is None:

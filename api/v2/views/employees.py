@@ -8,7 +8,7 @@ from api.v2.app import AUTH
 """from flasgger.utils import swag_from"""
 
 
-@app.route("/", methods=["GET"], strict_slashes=False)
+@app_views.route("/", methods=["GET"], strict_slashes=False)
 def index() -> str:
     """GET /
     Return:
@@ -141,7 +141,7 @@ def employee_delete(company):
     abort(404, 'Not found..')
 
 
-@app.route('/users', methods=[
+@app_views.route('/users', methods=[
     'POST'], strict_slashes=False)
 def reg_user() -> str:
     """register a user to the server"""
@@ -156,7 +156,7 @@ def reg_user() -> str:
             return jsonify({"message": "email already registered"}), 400
 
 
-@app.route('/sessions', methods=[
+@app_views.route('/sessions', methods=[
     'POST'], strict_slashes=False)
 def login() -> str:
     """method to comfirm logged in"""
@@ -171,7 +171,7 @@ def login() -> str:
         abort(401)
 
 
-@app.route('/sessions', methods=[
+@app_views.route('/sessions', methods=[
     'DELETE'], strict_slashes=False)
 def logout() -> str:
     """method to delete session. same as logout"""
@@ -185,7 +185,7 @@ def logout() -> str:
     return redirect("/")
 
 
-@app.route('/profile', methods=[
+@app_views.route('/profile', methods=[
     'GET'], strict_slashes=False)
 def profile() -> str:
     """method to get user profile page by session_id"""
@@ -198,7 +198,7 @@ def profile() -> str:
     return jsonify({"email": usr.email}), 200
 
 
-@app.route('/reset_password', methods=[
+@app_views.route('/reset_password', methods=[
     'POST'], strict_slashes=False)
 def get_reset_password_token() -> str:
     """method to get a reset password token"""
@@ -212,7 +212,7 @@ def get_reset_password_token() -> str:
         abort(403)
 
 
-@app.route('/reset_password', methods=[
+@app_views.route('/reset_password', methods=[
     'PUT'], strict_slashes=False)
 def update_password() -> str:
     """route to update password for user"""
