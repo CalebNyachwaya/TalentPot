@@ -115,7 +115,7 @@ class DBStorage:
 
         return count
 
-    def add_user(self, email: str, hashed_password: str) -> User:
+    def add_user(self, email: str, hashed_password: str) -> Employee:
         """method to add user via email and hashd
 password and saved to db"""
         usr = Employee(email=email, hashed_password=hashed_password)
@@ -127,23 +127,23 @@ password and saved to db"""
             self._session.rollback()
         return None
 
-    def find_user_by(self, **kwargs) -> User:
+    def find_user_by(self, **kwargs) -> Employee:
         """find a user by their email or entered keywrd"""
         fields, values = [], []
         for key, value in kwargs.items():
-            if hasattr(User, key):
-                fields.append(getattr(User, key))
+            if hasattr(Employee, key):
+                fields.append(getattr(Employee, key))
                 values.append(value)
             else:
                 raise InvalidRequestError()
-        result = self._session.query(User).filter(
+        result = self._session.query(Employee).filter(
             tuple_(*fields).in_([tuple(values)])
         ).first()
         if result is None:
             raise NoResultFound()
         return result
 
-    def update_user(self, user_id: int, **kwargs) -> None:
+    def update_user(self, user_id: str, **kwargs) -> None:
         """method to update user"""
         """Updates a user based on a given id.
         """
@@ -152,11 +152,11 @@ password and saved to db"""
             return
         update_source = {}
         for key, value in kwargs.items():
-            if hasattr(User, key):
-                update_source[getattr(User, key)] = value
+            if hasattr(Employee, key):
+                update_source[getattr(Employee, key)] = value
             else:
                 raise ValueError()
-        self.__session.query(User).filter(User.id == user_id).update(
+        self.__session.query(Employee).filter(Employee.id == user_id).update(
             update_source,
             synchronize_session=False,
         )

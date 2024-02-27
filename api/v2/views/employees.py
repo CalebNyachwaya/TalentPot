@@ -224,4 +224,3 @@ def update_password() -> str:
         return jsonify({"email": email, "message": "Password updated"})
     except ValueError:
         abort(403)
-

@@ -134,19 +134,15 @@ session in db to none"""
                 rout = []
         return True
 
-    def authorization_header(self, request=None) -> str:
-        """returns None - request will be the Flask request object"""
-        if request is None:
-            return None
-        headd = request.headers.get('Authorization')
-        if headd:
-            return headd
-        else:
-            return None
-
     def current_user(self, request=None) -> TypeVar('User'):
         """that returns None - request will be the Flask request object"""
-        return None
+        if request is None:
+            return None
+        sess_id = self.session_cookie(request)
+        usr = self.get_user_from_session_id(sess_id)
+        if usr is None:
+            return None
+        return usr
 
     def session_cookie(self, request=None):
         """returns cookie value from request"""
