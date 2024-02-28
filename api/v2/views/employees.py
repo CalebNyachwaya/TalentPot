@@ -123,25 +123,18 @@ def employee_with_id(company):
     usr = AUTH.get_user_from_session_id(cooki)
     if usr is None:
         abort(403)
-    employee_obj = storage.all(Employee).values()
-    if employee_obj is None:
-        abort(404, 'Not found')
     req_json = request.get_json()
-    dct = {}
     if req_json is None:
         abort(400, 'Not a JSON')
+    if usr.email == req_json["email"]
+    dct = {}
     for arr, brr in  req_json.items():
         if len(brr) > 2:
             dct[arr] = brr
-    for b in employee_obj:
-        emp_obj = b.to_dict()
-        for x, y in emp_obj.items():
-            if y == req_json['email']:
-                for ab, ac in dct.items():
-                    setattr(b, ab, ac)
-                storage.save()
-                return make_response(jsonify(b.to_dict()), 200)
-        emp_obj = {}
+    for ab, ac in dct.items():
+        setattr(usr, ab, ac)
+        storage.save()
+        return make_response(jsonify(b.to_dict()), 200)
     abort(404, 'Not found..')
 
 @app_views.route('/delete/employees/<company>/', methods=['DELETE'], strict_slashes=False)
