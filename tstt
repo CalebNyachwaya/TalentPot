@@ -2,8 +2,10 @@ curl -XPOST localhost:5000/users -d 'email=bob@me.com' -d 'password=mySuperPwd' 
 
 curl -XPOST localhost:5001/api/v2/users/ -d 'email=rich@me.com' -d 'password=myPwd'
 
+curl -XGET localhost:5001/api/v2/profile --cookie "session_id=5516ccc0-03a8-4cea-ad29-30767f329698"
+
 curl -XPOST localhost:5001/api/v2/sessions/ -d 'email=bob@bob.com' -d 'password=BlaBla'
 
 curl -XGET localhost:5001/api/v2/
 
-TP_MYSQL_USER=tp_dev TP_MYSQL_PWD=TP_dev_pwd_001 TP_MYSQL_HOST=localhost TP_MYSQL_DB=tp_dev_db TP_TYPE_STORAGE=db TP_API_HOST=0.0.0.0 TP_API_PORT=5001 SESSION=session_id SESSION_DURATION=60 python3 -m api.v2.app
+TP_MYSQL_USER=tp_dev TP_MYSQL_PWD=TP_dev_pwd_001 TP_MYSQL_HOST=localhost TP_MYSQL_DB=tp_dev_db TP_TYPE_STORAGE=db TP_API_HOST=0.0.0.0 TP_API_PORT=5001 SESSION_NAME=session_id SESSION_DURATION=60 python3 -m api.v2.app

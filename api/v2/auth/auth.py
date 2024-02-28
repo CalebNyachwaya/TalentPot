@@ -9,6 +9,7 @@ import datetime
 import os
 from sqlalchemy.orm.exc import NoResultFound
 from models.employee import Employee
+time = "%Y-%m-%dT%H:%M:%S.%f"
 
 
 
@@ -43,8 +44,8 @@ class Auth:
         """validate a login given email and pwd"""
         try:
             usr = self._db.find_user_by(email=email)
-            if bcrypt.checkpw(password.encode(
-                    "utf-8"), usr.hashed_password):
+            enc = str(password).encode("utf-8")
+            if bcrypt.checkpw(enc, usr.hashed_password.encode()):
                 return True
             else:
                 return False
@@ -56,7 +57,8 @@ class Auth:
         try:
             usr = self._db.find_user_by(email=email)
             uid = _generate_uuid()
-            self._db.update_user(usr.id, session_id=uid, session_created_at=datetime.datetime.now())
+            t = datetime.datetime.utcnow()
+            self._db.update_user(usr.id, session_id=uid, session_created_at=t)
             return uid
         except NoResultFound:
             return None

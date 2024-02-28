@@ -22,6 +22,12 @@ def get_employees(company):
     """
     Retrieves the list of all employees in a given company
     """
+    cooki = request.cookies.get("session_id")
+    if cooki is None:
+        abort(403)
+    usr = AUTH.get_user_from_session_id(cooki)
+    if usr is None:
+        abort(403)
     all_employees = storage.all(Employee).values()
     list_employees = []
     dict_employees = {}
@@ -43,6 +49,12 @@ def get_employees(company):
 @app_views.route('/add/employees/<company>', methods=['POST'], strict_slashes=False)
 def post_employees(company):
     """To add employee of a company to the db"""
+    cooki = request.cookies.get("session_id")
+    if cooki is None:
+        abort(403)
+    usr = AUTH.get_user_from_session_id(cooki)
+    if usr is None:
+        abort(403)
     data = request.get_json()
     if not data:
         abort(404, description="Not a JSON")
@@ -70,6 +82,12 @@ def get_dept_employees(company, dept):
     """
     Retrieves the list of all department employees in a given company
     """
+    cooki = request.cookies.get("session_id")
+    if cooki is None:
+        abort(403)
+    usr = AUTH.get_user_from_session_id(cooki)
+    if usr is None:
+        abort(403)
     all_employees = storage.all(Employee).values()
     list_employees = []
     dict_employees = {}
@@ -99,6 +117,12 @@ def employee_with_id(company):
     """
         employees route that handles http requests with ID given
     """
+    cooki = request.cookies.get("session_id")
+    if cooki is None:
+        abort(403)
+    usr = AUTH.get_user_from_session_id(cooki)
+    if usr is None:
+        abort(403)
     employee_obj = storage.all(Employee).values()
     if employee_obj is None:
         abort(404, 'Not found')
@@ -124,6 +148,12 @@ def employee_with_id(company):
 def employee_delete(company):
     """
     """
+    cooki = request.cookies.get("session_id")
+    if cooki is None:
+        abort(403)
+    usr = AUTH.get_user_from_session_id(cooki)
+    if usr is None:
+        abort(403)
     employee_obj = storage.all(Employee).values()
     if employee_obj is None:
         abort(404, 'Not found')
@@ -164,7 +194,7 @@ def login() -> str:
     password = request.form.get("password")
     if AUTH.valid_login(email, password):
         uid = AUTH.create_session(email)
-        response = jsonify({"email": email, "message": "logged in"})
+        response = jsonify({"email": email, "message": "logged in", "sess": uid})
         response.set_cookie("session_id", uid)
         return response
     else:

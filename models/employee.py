@@ -48,4 +48,8 @@ class Employee(BaseModel, Base):
 
     def __init__(self, *args, **kwargs):
         """initializes employee"""
+        if kwargs.get("session_created_at", None) and type(self.session_created_at) is str:
+            self.created_at = datetime.strptime(kwargs["created_at"], time)
+        else:
+            self.session_created_at = datetime.utcnow()
         super().__init__(*args, **kwargs)
