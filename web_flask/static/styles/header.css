@@ -21,25 +21,40 @@ header {
   background-image: url("../images/TalentPotlogo.svg");
   height: 100%;
   min-width: 168px;
-
   background-repeat: no-repeat;
 }
+
+.nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  /* justify-content: end; */
+  align-items: center;
+}
+
 .navigation-bar {
   width: 50%;
   min-width: 470px;
-  display: flex;
-  justify-content: space-around;
   flex-direction: row;
-  align-items: center;
-  /* border: solid 2px #da77f2; */
+  border: solid greenyellow 2px;
+}
+
+.nav .nav-item {
+  font-size: var(--nav-font-size);
+}
+
+.nav .nav-link {
+  display: block;
+  /* padding: 0.5rem 0; */
+  position: relative;
+  font-weight: 600;
 }
 
 .navigation-bar a:link,
 .navigation-bar a:visited {
-  font-weight: 600;
-  /* font-size: 20px;
-  font-size: 2rem; */
-  font-size: var(--nav-font-size);
   text-decoration: none;
   color: #0e1152;
   position: relative;
@@ -92,9 +107,22 @@ header {
     top: 100px;
     height: 100vh;
     left: 0;
-    align-items: start;
+    align-items: center;
     background: red;
     flex-direction: column;
     text-align: center;
+  }
+
+  header {
+    justify-content: space-between;
+  }
+
+  .nav {
+    flex-direction: column;
+    z-index: 999;
+  }
+
+  .nav .nav-link {
+    height: 50px;
   }
 }
