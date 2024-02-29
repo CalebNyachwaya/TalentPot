@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ Flask Application """
+from flask_mail import Mail, Message
 from models import storage
 from api.v2.views import app_views
 from os import environ
@@ -12,6 +13,12 @@ AUTH = Auth()
 
 app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
+app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'chekwasybuildex@gmail.com'
+app.config['MAIL_PASSWORD'] = 'ucblaybosshvkvwt'
+mail = Mail(app)
 app.register_blueprint(app_views)
 cors = CORS(app, resources={r"/api/v2/*": {"origins": "*"}})
 

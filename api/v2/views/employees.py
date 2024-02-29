@@ -5,6 +5,8 @@ from models import storage
 from api.v2.views import app_views
 from flask import abort, jsonify, make_response, request
 from api.v2.app import AUTH
+from api.v2.app import mail
+from api.v2.app import Message
 """from flasgger.utils import swag_from"""
 
 
@@ -126,15 +128,15 @@ def employee_with_id(company):
     req_json = request.get_json()
     if req_json is None:
         abort(400, 'Not a JSON')
-    if usr.email == req_json["email"]
     dct = {}
-    for arr, brr in  req_json.items():
-        if len(brr) > 2:
-            dct[arr] = brr
-    for ab, ac in dct.items():
-        setattr(usr, ab, ac)
-        storage.save()
-        return make_response(jsonify(b.to_dict()), 200)
+    if usr.email == req_json.get("email"):
+        for arr, brr in  req_json.items():
+            if len(brr) > 2:
+                dct[arr] = brr
+        for ab, ac in dct.items():
+            setattr(usr, ab, ac)
+            storage.save()
+            return make_response(jsonify(b.to_dict()), 200)
     abort(404, 'Not found..')
 
 @app_views.route('/delete/employees/<company>/', methods=['DELETE'], strict_slashes=False)
@@ -230,6 +232,9 @@ def get_reset_password_token() -> str:
         r_tok = AUTH.get_reset_password_token(email)
         if r_tok is None:
             abort(403)
+        msg = Message('Token', sender='chekwasybuildex@gmail.com', recipients=[email])
+        msg.body = f"Your Token is: {r_tok}"
+        mail.send(msg)
         return jsonify({"email": email, "reset_token": r_tok})
     except ValueError:
         abort(403)
