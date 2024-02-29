@@ -24,6 +24,8 @@ sudo mysql_secure_installation
 #reload the priviledges
 
 
+sudo mysql
+
 CREATE USER 'sammy'@'localhost' IDENTIFIED BY 'password';
 
 #check if authuntication socket is on with this
