@@ -30,3 +30,4 @@ CREATE USER 'sammy'@'localhost' IDENTIFIED BY 'password';
 
 #check if authuntication socket is on with this
 SELECT * FROM mysql.user WHERE user='root'\G
+
