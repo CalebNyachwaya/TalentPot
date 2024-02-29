@@ -84,7 +84,7 @@
 .btn-big {
   padding: 16px 32px;
   font-weight: 600;
-  font-size: var(--btn-font-size);
+  font-size: var(--big-btn-font-size);
 }
 
 .btn--small {

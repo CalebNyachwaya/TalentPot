@@ -188,9 +188,12 @@ template {
   /** NAVBAR **/
 
   /** BUTTON **/
-  --btn-font-size: 1.6rem;
+  --big-btn-font-size: 1.6rem;
 
   /** MOTION **/
+
+  /** FORM **/
+  --placeholder-font: 1.4rem;
 }
 
 /* Base
