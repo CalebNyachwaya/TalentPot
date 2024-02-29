@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """ holds class employee"""
-
+from datetime import datetime
 import models
 from models.base_model import BaseModel, Base
 from os import getenv
 import sqlalchemy
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, Integer, DateTime
 from sqlalchemy.orm import relationship
 from hashlib import md5
 
@@ -14,21 +14,22 @@ class Employee(BaseModel, Base):
     """Representation of a employee """
     if models.storage_t == 'db':
         __tablename__ = 'employees'
-        email = Column(String(128), nullable=False)
-        password = Column(String(128), nullable=False)
-        first_name = Column(String(128), nullable=False)
-        last_name = Column(String(128), nullable=False)
-        phone = Column(String(128), nullable=False)
-        dept = Column(String(128), nullable=False)
-        position = Column(String(128), nullable=False)
-        DOB = Column(String(128), nullable=False)
-        company = Column(String(128), nullable=False)
-        address = Column(String(128), nullable=False)
-        city = Column(String(128), nullable=False)
-        country = Column(String(128), nullable=False)
+        first_name = Column(String(128), nullable=True)
+        last_name = Column(String(128), nullable=True)
+        phone = Column(String(128), nullable=True)
+        dept = Column(String(128), nullable=True)
+        position = Column(String(128), nullable=True)
+        DOB = Column(String(128), nullable=True)
+        company = Column(String(128), nullable=True)
+        address = Column(String(128), nullable=True)
+        city = Column(String(128), nullable=True)
+        country = Column(String(128), nullable=True)
+        email = Column(String(250), nullable=False)
+        hashed_password = Column(String(250), nullable=False)
+        session_id = Column(String(250), nullable=True)
+        session_created_at = Column(DateTime, default=datetime.utcnow)
+        reset_token = Column(String(250), nullable=True)
     else:
-        email = ""
-        password = ""
         first_name = ""
         last_name = ""
         phone = ""
@@ -39,13 +40,16 @@ class Employee(BaseModel, Base):
         address = ""
         city = ""
         country = ""
+        email = ""
+        hashed_password = ""
+        session_id = ""
+        reset_token = ""
+
 
     def __init__(self, *args, **kwargs):
         """initializes employee"""
+        if kwargs.get("session_created_at", None) and type(self.session_created_at) is str:
+            self.created_at = datetime.strptime(kwargs["created_at"], time)
+        else:
+            self.session_created_at = datetime.utcnow()
         super().__init__(*args, **kwargs)
-
-    def __setattr__(self, name, value):
-        """sets a password with md5 encryption"""
-        if name == "password":
-            value = md5(value.encode()).hexdigest()
-        super().__setattr__(name, value)
