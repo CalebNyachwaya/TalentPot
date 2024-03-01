@@ -1,6 +1,6 @@
 -- prepares a MySQL server for the project
 
-DROP DATABASE tp_dev_db;
+DROP DATABASE IF EXISTS tp_dev_db;
 
 CREATE DATABASE IF NOT EXISTS tp_dev_db;
 CREATE USER IF NOT EXISTS 'tp_dev'@'localhost' IDENTIFIED BY 'TP_dev_pwd_001';
