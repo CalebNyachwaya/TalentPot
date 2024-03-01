@@ -46,6 +46,34 @@ def delete():
     return render_template('delete.html')
 
 
+@app.route('/signin', strict_slashes=False)
+def signin():
+    """ Signin is alive! """
+
+    return render_template('sign_in.html')
+
+
+@app.route('/signup', strict_slashes=False)
+def signup():
+    """ Signup is alive! """
+
+    return render_template('sign_up.html')
+
+
+@app.route('/generate_token', strict_slashes=False)
+def generatetoken():
+    """ Token  is alive! """
+
+    return render_template('token.html')
+
+
+@app.route('/reset_passwd', strict_slashes=False)
+def resetp():
+    """ Reset password is alive! """
+
+    return render_template('resetpass.html')
+
+
 if __name__ == "__main__":
     """ Main Function """
     app.run(host='0.0.0.0', port=5000)

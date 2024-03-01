@@ -20,37 +20,84 @@ header {
 .head_logo2 {
   background-image: url("../images/TalentPotlogo.svg");
   height: 100%;
-  min-width: 168px;
+  min-width: 150px;
   background-repeat: no-repeat;
 }
 
 .nav {
   margin: 0;
   padding: 0;
-  list-style: none;
   text-align: center;
   display: flex;
-  justify-content: space-around;
+  justify-content: end;
   /* justify-content: end; */
   align-items: center;
 }
 
-.navigation-bar {
-  width: 50%;
-  min-width: 470px;
-  flex-direction: row;
-  border: solid greenyellow 2px;
+.navigation-bar ul {
+  list-style: none;
 }
 
-.nav .nav-item {
+.navigation-bar {
+  width: 50%;
+  /* min-width: 470px; */
+  /* border: solid greenyellow 2px; */
   font-size: var(--nav-font-size);
 }
 
+.navigation-bar a {
+  height: 100%;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+}
+
 .nav .nav-link {
-  display: block;
-  /* padding: 0.5rem 0; */
+  /* display: block; */
   position: relative;
   font-weight: 600;
+}
+
+ul.nav li:last-child a {
+  padding: 0;
+}
+
+.menu-btn {
+  display: none;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.1);
+  /* background-color: white; */
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  backdrop-filter: blur(10px);
+}
+
+.sidebar li {
+  width: 100%;
+  min-height: 60px;
+}
+
+ul.sidebar li:first-child {
+  height: 12%;
+  min-height: 50px;
+}
+.sidebar a {
+  width: 100%;
+}
+
+.sidebar a:hover {
+  background-color: rgba(255, 228, 196, 0.336);
 }
 
 .navigation-bar a:link,
@@ -73,7 +120,7 @@ header {
 }
 
 .navigation-bar a:hover::after {
-  background-color: #f96d28; /* Make the dot orange on hover */
+  background-color: #f96d28; /* Make the dot on hover */
 }
 
 .navigation-bar a.exclude-dot::after {
@@ -85,44 +132,26 @@ header {
   width: 100px;
 }
 
-.checkbtn {
-  font-size: var(--nav-font-size);
-  cursor: pointer;
-  display: none;
-  justify-self: end;
-}
-
-#sticks {
-  display: none;
-}
-
 @media screen and (max-width: 991.98px) {
-  .checkbtn {
-    display: block;
+  .sidebar {
+    width: 40%;
   }
-
-  .navigation-bar {
-    width: 100%;
-    position: fixed;
-    top: 100px;
-    height: 100vh;
-    left: 0;
-    align-items: center;
-    background: red;
-    flex-direction: column;
-    text-align: center;
+  .hideOnMobile {
+    display: none;
   }
-
   header {
     justify-content: space-between;
   }
-
-  .nav {
-    flex-direction: column;
-    z-index: 999;
+  .menu-btn {
+    display: block;
   }
+}
 
-  .nav .nav-link {
-    height: 50px;
+@media screen and (max-width: 767.98px) {
+}
+
+@media screen and (max-width: 575.98px) {
+  .sidebar {
+    width: 100%;
   }
 }

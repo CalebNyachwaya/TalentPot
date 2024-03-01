@@ -39,15 +39,16 @@
   letter-spacing: -1.5px;
   width: 570px;
 }
+
 .line2 {
   display: none;
 }
+
 .landing-text {
   width: 40%;
   font-weight: 400;
   margin-bottom: 50px;
   margin-top: 25px;
-  /* font-size: 18px; */
   font-size: 1.8rem;
   line-height: 1.7;
 }
@@ -55,17 +56,6 @@
 .main_text {
   margin-bottom: 20px;
 }
-/* .main_text {
-  position: absolute;
-  top: 45%;
-  transform: translateY(-50%);
-} */
-
-/* @media screen and (max-width: 1200px) {
-  .landing-text {
-    font-size: 16px;
-  }
-} */
 
 /* button */
 .btn:link,
@@ -154,23 +144,16 @@
 }
 
 @media screen and (max-width: 991.98px) {
-  /* .main_text {
-    position: absolute;
-    top: 25%;
-    transform: translateY(-50%);
-  } */
   .main-container {
     align-items: start;
     padding: 2% 6%;
-    /* border: solid 2px yellow; */
   }
 
   .headline {
-    /* font-size: 5rem; */
     font-size: 3.8rem;
     width: 100%;
-    /* width: 510px; */
   }
+
   .landing-text {
     width: 50%;
     font-size: 1.6rem;
@@ -196,6 +179,5 @@
 @media screen and (max-width: 575.98px) {
   .headline {
     font-size: 2.5rem;
-    /* width: 100%; */
   }
 }
