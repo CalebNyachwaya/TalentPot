@@ -3,21 +3,20 @@
 from models.employee import Employee
 from models import storage
 from api.v2.views import app_views
+from flask_mail import Message
 from flask import abort, jsonify, make_response, request
-from api.v2.app import AUTH
-from api.v2.app import mail
-from api.v2.app import Message
+"""from api.v2.app import AUTH"""
 """from flasgger.utils import swag_from"""
 
 
-"""
+
 @app_views.route("/", methods=["GET"], strict_slashes=False)
-def index() -> str:"""
-"""GET /
-Return:
-- The home page's payload.
-"""
-"""return jsonify({"message": "Bienvenue"})"""
+def index() -> str:
+	"""GET /
+	Return:
+	- The home page's payload.
+	"""
+	return jsonify({"message": "Bienvenue"})
 
 
 @app_views.route('/employees/<company>', methods=['GET'], strict_slashes=False)
@@ -88,6 +87,7 @@ def get_dept_employees(company, dept):
     cooki = request.cookies.get("session_id")
     if cooki is None:
         abort(403)
+    from api.v2.app import AUTH
     usr = AUTH.get_user_from_session_id(cooki)
     if usr is None:
         abort(403)
@@ -175,6 +175,7 @@ def reg_user() -> str:
     password = request.form.get("password")
     if email and password:
         try:
+            from api.v2.app import AUTH
             usr = AUTH.register_user(email, password)
             return jsonify({"email": usr.email,
                             "message": "user created"})
@@ -188,6 +189,7 @@ def login() -> str:
     """method to comfirm logged in"""
     email = request.form.get("email")
     password = request.form.get("password")
+    from api.v2.app import AUTH
     if AUTH.valid_login(email, password):
         uid = AUTH.create_session(email)
         response = jsonify({"email": email, "message": "logged in", "sess": uid})
@@ -204,6 +206,7 @@ def logout() -> str:
     cooki = request.cookies.get("session_id")
     if cooki is None:
         abort(403)
+    from api.v2.app import AUTH
     usr = AUTH.get_user_from_session_id(cooki)
     if usr is None:
         abort(403)
@@ -218,6 +221,7 @@ def profile() -> str:
     cooki = request.cookies.get("session_id")
     if cooki is None:
         abort(403)
+    from api.v2.app import AUTH
     usr = AUTH.get_user_from_session_id(cooki)
     if usr is None:
         abort(403)
@@ -228,8 +232,10 @@ def profile() -> str:
     'POST'], strict_slashes=False)
 def get_reset_password_token() -> str:
     """method to get a reset password token"""
+    from api.v2.app import mail
     email = request.form.get("email")
     try:
+        from api.v2.app import AUTH
         r_tok = AUTH.get_reset_password_token(email)
         if r_tok is None:
             abort(403)
@@ -249,6 +255,7 @@ def update_password() -> str:
     reset_token = request.form.get("reset_token")
     new_password = request.form.get("new_password")
     try:
+        from api.v2.app import AUTH
         AUTH.update_password(reset_token, new_password)
         return jsonify({"email": email, "message": "Password updated"})
     except ValueError:

@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Flask Application """
-from flask_mail import Mail, Message
+from flask_mail import Mail
 from models import storage
 from api.v2.views import app_views
 from os import environ
