@@ -27,7 +27,6 @@ header {
 .nav {
   margin: 0;
   padding: 0;
-  list-style: none;
   text-align: center;
   display: flex;
   justify-content: space-around;
@@ -35,20 +34,23 @@ header {
   align-items: center;
 }
 
+.navigation-bar ul {
+  list-style: none;
+}
+
 .navigation-bar {
   width: 50%;
   min-width: 470px;
-  flex-direction: row;
-  border: solid greenyellow 2px;
+  /* border: solid greenyellow 2px; */
+  font-size: var(--nav-font-size);
 }
 
-.nav .nav-item {
-  font-size: var(--nav-font-size);
+.sidebar li {
+  height: 50px;
 }
 
 .nav .nav-link {
   display: block;
-  /* padding: 0.5rem 0; */
   position: relative;
   font-weight: 600;
 }
@@ -73,7 +75,7 @@ header {
 }
 
 .navigation-bar a:hover::after {
-  background-color: #f96d28; /* Make the dot orange on hover */
+  background-color: #f96d28; /* Make the dot on hover */
 }
 
 .navigation-bar a.exclude-dot::after {
@@ -85,44 +87,25 @@ header {
   width: 100px;
 }
 
-.checkbtn {
-  font-size: var(--nav-font-size);
-  cursor: pointer;
-  display: none;
-  justify-self: end;
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  background-color: white;
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
-#sticks {
-  display: none;
+.sidebar li {
+  width: 100%;
 }
 
-@media screen and (max-width: 991.98px) {
-  .checkbtn {
-    display: block;
-  }
-
-  .navigation-bar {
-    width: 100%;
-    position: fixed;
-    top: 100px;
-    height: 100vh;
-    left: 0;
-    align-items: center;
-    background: red;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  header {
-    justify-content: space-between;
-  }
-
-  .nav {
-    flex-direction: column;
-    z-index: 999;
-  }
-
-  .nav .nav-link {
-    height: 50px;
-  }
+.nav-link {
+  width: 100%;
 }
