@@ -27,13 +27,10 @@
     <div class="form-container">
       <div class="form-box">
         <h1 id="title">Sign in</h1>
-        <!-- <div class="head_logo">
-          <div class="head_logo2"></div>
-        </div> -->
-        <form>
+
+        <form action="/api/v2/sessions" method="POST">
           <div class="input-group">
             <div class="input-field" id="namefield">
-              <!-- <i class="fa-solid fa-user"></i> -->
               <i class="fa-solid fa-envelope"></i>
               <input type="text" placeholder="Email" />
             </div>
@@ -46,7 +43,7 @@
             </div>
           </div>
           <div class="btn-field">
-            <button type="button" id="signupBtn">Sign in</button>
+            <button type="submit" id="signupBtn">Sign in</button>
             <p><a href="./sign_up.html">I don’t have an account</a></p>
           </div>
         </form>
