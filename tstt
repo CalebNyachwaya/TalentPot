@@ -9,3 +9,7 @@ curl -XPOST localhost:5001/api/v2/sessions/ -d 'email=bob@bob.com' -d 'password=
 curl -XGET localhost:5001/api/v2/
 
 TP_MYSQL_USER=tp_dev TP_MYSQL_PWD=TP_dev_pwd_001 TP_MYSQL_HOST=localhost TP_MYSQL_DB=tp_dev_db TP_TYPE_STORAGE=db TP_API_HOST=0.0.0.0 TP_API_PORT=5001 SESSION_NAME=session_id SESSION_DURATION=60 python3 -m api.v2.app
+
+TP_MYSQL_USER=tp_dev TP_MYSQL_PWD=TP_dev_pwd_001 TP_MYSQL_HOST=localhost TP_MYSQL_DB=tp_dev_db TP_TYPE_STORAGE=db python3 -m web_flask.talent_pot
+
+curl -s -XGET http://0.0.0.0:5000/signin/

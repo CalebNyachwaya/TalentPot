@@ -10,13 +10,14 @@ from api.v2.app import Message
 """from flasgger.utils import swag_from"""
 
 
+"""
 @app_views.route("/", methods=["GET"], strict_slashes=False)
-def index() -> str:
-    """GET /
-    Return:
-        - The home page's payload.
-    """
-    return jsonify({"message": "Bienvenue"})
+def index() -> str:"""
+"""GET /
+Return:
+- The home page's payload.
+"""
+"""return jsonify({"message": "Bienvenue"})"""
 
 
 @app_views.route('/employees/<company>', methods=['GET'], strict_slashes=False)

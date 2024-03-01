@@ -1,0 +1,16 @@
+# Install and activate venv
+sudo apt-get install python3.8-venv
+python3 -m venv venv
+source venv/bin/activate
+
+# Install MySQLdb module version 2.0.x
+sudo apt-get install python3-dev
+sudo apt-get install libmysqlclient-dev
+sudo apt-get install zlib1g-dev
+sudo apt install python3-dev default-libmysqlclient-dev build-essential
+sudo apt-get install pkg-config
+sudo pip3 install mysqlclient
+
+
+# Install SQLAlchemy module version 1.4.x
+sudo pip3 install SQLAlchemy
