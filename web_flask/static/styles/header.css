@@ -62,6 +62,12 @@ ul.nav li:last-child a {
   padding: 0;
 }
 
+ul.nav li:nth-last-child(2) a {
+  padding: 8px 18px;
+  margin-left: 10px;
+  width: 102px;
+}
+
 .menu-btn {
   display: none;
 }
