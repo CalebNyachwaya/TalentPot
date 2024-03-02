@@ -11,7 +11,7 @@
   display: grid;
   /* grid-template-columns: 1fr 1fr 1fr; */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 84vh;
   gap: 50px;
   flex-wrap: wrap;
