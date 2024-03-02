@@ -117,12 +117,7 @@ footer {
   height: 48px;
   display: grid;
   place-items: center;
-  /* background-image: linear-gradient(to right); */
-  /* border: 1px solid blue; */
   color: var(--footer-color);
-
-  /* font-size: 14px; */
-  /* font-size: 1.4rem; */
 }
 footer p {
   font-size: 1.4rem;
