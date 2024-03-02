@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('#addUserForm').on('submit', function (event) {
-	const api = "http://" + "calebcodes.tech/api/v1/add/employees/";
+	const api = "http://" + "talentpot.calebcodes.tech/api/v1/add/employees/";
 	const comp = $("#company").val();
 	$.ajax({
 	    url: api + comp,
