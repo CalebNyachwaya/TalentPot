@@ -22,21 +22,27 @@
       src="https://kit.fontawesome.com/e96e4f984c.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   </head>
   <body>
     <div class="form-container">
       <div class="form-box">
         <h1 id="title">Sign in</h1>
 
-        <form action="/api/v2/sessions" method="POST">
+        <form id="signin_page" method="POST">
           <div class="input-group">
             <div class="input-field" id="namefield">
               <i class="fa-solid fa-envelope"></i>
-              <input type="text" placeholder="Email" />
+              <input type="email" placeholder="Email" required minlength="3" />
             </div>
             <div class="input-field">
               <i class="fa-solid fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input
+                type="password"
+                placeholder="Password"
+                required
+                minlength="6"
+              />
             </div>
             <div class="lost">
               <p><a href="/generate_token">Forgot your password?</a></p>
@@ -52,5 +58,9 @@
     <footer>
       <p>Copyright © TalentPot. All Rights Reserved</p>
     </footer>
+    <script
+      type="text/javascript"
+      src="../static/scripts/signin_script.js"
+    ></script>
   </body>
 </html>
