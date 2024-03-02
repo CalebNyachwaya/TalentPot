@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="shortcut icon" href="images/icon.png" />
-    <title>Password Reset</title>
+    <title>Enter token</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,39 +26,39 @@
   <body>
     <div class="form-container">
       <div class="form-box">
+        <!-- <h1 id="title">Set new password</h1> -->
         <h2 id="title-token">Reset your password</h2>
-        <form action="/api/v2/reset_password" method="POST">
-          <div class="input-group-token">
+        <!-- <div class="head_logo">
+          <div class="head_logo2"></div>
+        </div> -->
+        <form action="/api/v2/users" method="POST">
+          <div class="input-group">
             <div class="input-field">
-              <i class="fa-solid fa-envelope"></i>
-              <input type="email" placeholder="Email" />
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" placeholder="New Password" />
+            </div>
+            <div class="input-field">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" placeholder="Renter Password" />
+            </div>
+            <div class="input-field" id="namefield">
+              <!-- <i class="fa-solid fa-user"></i> -->
+              <i class="fa-solid fa-lock"></i>
+              <input type="text" placeholder="Token" />
+            </div>
+            <div class="lost">
+              <p><a href="/generate_token">Didn't receive token?</a></p>
             </div>
           </div>
-          <div class="btn-field-token">
-            <button type="submit" id="signupBtn">Send me token</button>
+          <div class="btn-field">
+            <button type="submit" id="signupBtn">Reset Password</button>
+            <p><a href="/signin">Back to sign-in</a></p>
           </div>
         </form>
       </div>
     </div>
-    <script>
-      let signinBtn = document.getElementById("signinBtn");
-      let signupBtn = document.getElementById("signupBtn");
-      let namefield = document.getElementById("namefield");
-      let title = document.getElementById("title");
-
-      signinBtn.onclick = function () {
-        namefield.style.maxHeight = "0";
-        title.innerHTML = "Sign in";
-        signinBtn.classList.remove("disable");
-        signupBtn.classList.add("disable");
-      };
-
-      signupBtn.onclick = function () {
-        namefield.style.maxHeight = "65px";
-        title.innerHTML = "Sign up";
-        signinBtn.classList.add("disable");
-        signupBtn.classList.remove("disable");
-      };
-    </script>
+    <footer>
+      <p>Copyright © TalentPot. All Rights Reserved</p>
+    </footer>
   </body>
 </html>
