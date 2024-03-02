@@ -5,18 +5,7 @@ from models import storage
 from api.v2.views import app_views
 from flask_mail import Message
 from flask import abort, jsonify, make_response, request
-"""from api.v2.app import AUTH"""
 """from flasgger.utils import swag_from"""
-
-
-
-@app_views.route("/", methods=["GET"], strict_slashes=False)
-def index() -> str:
-	"""GET /
-	Return:
-	- The home page's payload.
-	"""
-	return jsonify({"message": "Bienvenue"})
 
 
 @app_views.route('/employees/<company>', methods=['GET'], strict_slashes=False)
@@ -171,8 +160,11 @@ def employee_delete(company):
     'POST'], strict_slashes=False)
 def reg_user() -> str:
     """register a user to the server"""
-    email = request.form.get("email")
-    password = request.form.get("password")
+    data = request.get_json()
+    if not data:
+        abort(404)
+    email = data.get("email")
+    password = data.get("password")
     if email and password:
         try:
             from api.v2.app import AUTH
@@ -187,8 +179,11 @@ def reg_user() -> str:
     'POST'], strict_slashes=False)
 def login() -> str:
     """method to comfirm logged in"""
-    email = request.form.get("email")
-    password = request.form.get("password")
+    data = request.get_json()
+    if not data:
+        abort(404)
+    email = data.get("email")
+    password = data.get("password")
     from api.v2.app import AUTH
     if AUTH.valid_login(email, password):
         uid = AUTH.create_session(email)
@@ -233,7 +228,10 @@ def profile() -> str:
 def get_reset_password_token() -> str:
     """method to get a reset password token"""
     from api.v2.app import mail
-    email = request.form.get("email")
+    data = request.get_json()
+    if not data:
+        abort(404)
+    email = data.get("email")
     try:
         from api.v2.app import AUTH
         r_tok = AUTH.get_reset_password_token(email)
@@ -251,9 +249,12 @@ def get_reset_password_token() -> str:
     'PUT'], strict_slashes=False)
 def update_password() -> str:
     """route to update password for user"""
-    email = request.form.get("email")
-    reset_token = request.form.get("reset_token")
-    new_password = request.form.get("new_password")
+    data = request.get_json()
+    if not data:
+        abort(404)
+    email = data.get("email")
+    reset_token = data.get("reset_token")
+    new_password = data.get("new_password")
     try:
         from api.v2.app import AUTH
         AUTH.update_password(reset_token, new_password)
