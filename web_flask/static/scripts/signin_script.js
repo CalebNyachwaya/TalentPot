@@ -10,10 +10,10 @@ $(document).ready(function () {
       }),
       contentType: "application/json",
       dataType: "json",
-    }).done(function (data, test) {
-      alert(`Signed in` + test);
+    }).done(function (data) {
+      alert(`Signed in ${data.email}`);
       // $.cookie("session_id", "cookieValue");
-      document.cookie = "cookieName=cookieValue";
+      document.cookie = `cookieName=data.session_id`;
 
       // Set a cookie with expiration time (in days)
       var expirationDate = new Date();
