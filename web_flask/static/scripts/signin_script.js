@@ -13,13 +13,13 @@ $(document).ready(function () {
     }).done(function (data) {
       alert(`Signed in ${data.email}`);
       // $.cookie("session_id", "cookieValue");
-      document.cookie = `cookieName=${data.sess}`;
+      // document.cookie = `session_id=${data.sess}`;
 
       // Set a cookie with expiration time (in days)
       var expirationDate = new Date();
       expirationDate.setDate(expirationDate.getDate() + 7); // Expires in 7 days
       document.cookie =
-        "session_id=cookieValue; expires=" + expirationDate.toUTCString();
+        `session_id=${data.sess}; expires=` + expirationDate.toUTCString();
       window.location.href = "/aft_signin";
     });
     event.preventDefault();
