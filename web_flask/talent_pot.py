@@ -100,7 +100,7 @@ def resetp():
 def aft_signin():
     """ after signin is alive! """
 
-    return render_template('after_signin.html')
+    return render_template('after-signin.html')
 
 
 if __name__ == "__main__":
