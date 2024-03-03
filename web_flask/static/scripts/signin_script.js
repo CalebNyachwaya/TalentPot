@@ -13,6 +13,13 @@ $(document).ready(function () {
     }).done(function (data, test) {
       alert(`Signed in` + test);
       // $.cookie("session_id", "cookieValue");
+      document.cookie = "cookieName=cookieValue";
+
+      // Set a cookie with expiration time (in days)
+      var expirationDate = new Date();
+      expirationDate.setDate(expirationDate.getDate() + 7); // Expires in 7 days
+      document.cookie =
+        "session_id=cookieValue; expires=" + expirationDate.toUTCString();
     });
     event.preventDefault();
   });
