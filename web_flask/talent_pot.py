@@ -15,6 +15,27 @@ def close_db(error):
     storage.close()
 
 
+@app.before_request
+def filteringrequest():
+    """function to filter out routes that dont need authentication"""
+    if AUTH is None:
+        return
+    excluded_paths = [
+        '/api/v2/',
+        '/api/v2/unauthorized/',
+        '/api/v2/forbidden/',
+        '/api/v2/reset_password/',
+        '/api/v2/users/',
+        '/api/v2/sessions/',
+    ]
+    if not AUTH.require_auth(request.path, excluded_paths):
+        return
+
+    if AUTH.session_cookie(
+            request) is None:
+        abort(401)
+
+
 @app.route('/', strict_slashes=False)
 def talent_pot():
     """ TALENTPOT is alive! """
