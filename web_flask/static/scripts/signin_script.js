@@ -13,7 +13,7 @@ $(document).ready(function () {
     }).done(function (data) {
       alert(`Signed in ${data.email}`);
       // $.cookie("session_id", "cookieValue");
-      document.cookie = `cookieName=data.session_id`;
+      document.cookie = `cookieName=${data.sess}`;
 
       // Set a cookie with expiration time (in days)
       var expirationDate = new Date();
