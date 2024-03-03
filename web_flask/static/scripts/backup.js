@@ -1,6 +1,6 @@
 document.ready(function () {
   $("#asub").on("submit", function (event) {
-    const api = "http://" + "talentpot.calebcodes.tech/api/v1/employees/";
+    const api = "http://" + "talentpot.calebcodes.tech/api/v2/employees/";
     const comp = stringify($("#company".val()));
     $.ajax({
       url: api + comp,
@@ -27,7 +27,7 @@ document.ready(function () {
     event.preventDefault();
   });
   $("#msub").on("submit", function (event) {
-    const api = "http://" + "calebcodes.tech/api/v1/employees/";
+    const api = "http://" + "calebcodes.tech/api/v2/employees/";
     const comp = stringify($("#company".val()));
     $.ajax({
       url: api + comp,
@@ -52,7 +52,7 @@ document.ready(function () {
     event.preventDefault();
   });
   $("#dsub").on("submit", function (event) {
-    const api = "http://" + "calebcodes.tech/api/v1/employees/";
+    const api = "http://" + "calebcodes.tech/api/v2/employees/";
     const comp = stringify($("#company".val()));
     $.ajax({
       url: api + comp,

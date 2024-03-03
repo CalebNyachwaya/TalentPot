@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $("#deleteUserForm").on("submit", function (event) {
     const api =
-      "http://" + "talentpot.calebcodes.tech/api/v1/delete/employees/";
+      "http://" + "talentpot.calebcodes.tech/api/v2/delete/employees/";
     const comp = $("INPUT#company").val();
     $.ajax({
       url: api + comp,

@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $("#signin_page").on("submit", function (event) {
-    const api = "http://" + "talentpot.calebcodes.tech/api/v1/sessions";
+    const api = "http://" + "talentpot.calebcodes.tech/api/v2/sessions";
     $.ajax({
       url: api,
       type: "POST",

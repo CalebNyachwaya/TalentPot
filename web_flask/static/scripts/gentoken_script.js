@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $("#gentoken").on("submit", function (event) {
-    const api = "http://" + "talentpot.calebcodes.tech/api/v1/reset_password";
+    const api = "http://" + "talentpot.calebcodes.tech/api/v2/reset_password";
     $.ajax({
       url: api,
       type: "POST",

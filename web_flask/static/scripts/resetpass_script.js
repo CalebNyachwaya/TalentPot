@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $("#signup_page").on("submit", function (event) {
-    const api = "http://" + "talentpot.calebcodes.tech/api/v1/reset_password";
+    const api = "http://" + "talentpot.calebcodes.tech/api/v2/reset_password";
     const passwd = $("#password").val();
     const rpasswd = $("#rpassword").val();
     if (passwd === rpasswd) {
