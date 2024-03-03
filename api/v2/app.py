@@ -45,9 +45,14 @@ def filteringrequest():
     if not AUTH.require_auth(request.path, excluded_paths):
         return
 
-    if AUTH.session_cookie(
-            request) is None:
+    cooki = request.cookie.get("session_id")
+    if (cooki is None):
         abort(401)
+    if cooki:
+        from api.v2.app import AUTH
+        usr = AUTH.get_user_from_session_id(cooki)
+	if usr is None:
+            abort(403)
 
 
 @app.errorhandler(401)

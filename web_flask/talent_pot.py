@@ -23,9 +23,15 @@ def filteringrequest():
         '/aft_signin',
     ]
 
-    if (request.cookies.get("session_id") is None):
+    cooki = request.cookies.get("session_id")
+    if (cooki is None):
         if (request.path in lock_paths):
             abort(401)
+    if cooki:
+        from api.v2.app import AUTH
+        usr = AUTH.get_user_from_session_id(cooki)
+        if usr is None:
+            abort(403)
 
 
 @app.route('/', strict_slashes=False)
