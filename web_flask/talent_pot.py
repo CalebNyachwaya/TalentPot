@@ -3,7 +3,7 @@
 from models import storage
 from models.employee import Employee
 from os import environ
-from flask import Flask, render_template
+from flask import Flask, render_template, request, abort
 app = Flask(__name__)
 # app.jinja_env.trim_blocks = True
 # app.jinja_env.lstrip_blocks = True
@@ -13,6 +13,14 @@ app = Flask(__name__)
 def close_db(error):
     """ Remove the current SQLAlchemy Session """
     storage.close()
+
+
+@app.before_request
+def filteringrequest():
+    """function to filter out routes that dont need authentication"""
+    if (request.cookies.get("session_id") is None):
+        if (request.path != "/after-signin") and request.path != "/after-signin/":
+            abort(401)
 
 
 @app.route('/', strict_slashes=False)
