@@ -188,7 +188,7 @@ def login() -> str:
     if AUTH.valid_login(email, password):
         uid = AUTH.create_session(email)
         response = jsonify({"email": email, "message": "logged in", "sess": uid})
-        response.set_cookie("session_id", uid, max_age=900, httponly=True)
+        response.set_cookie("session_id", uid, max_age=900)
         return response
     else:
         abort(401)
