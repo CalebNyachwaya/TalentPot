@@ -20,6 +20,7 @@ $(document).ready(function () {
       expirationDate.setDate(expirationDate.getDate() + 7); // Expires in 7 days
       document.cookie =
         "session_id=cookieValue; expires=" + expirationDate.toUTCString();
+      window.location.href = "/aft_signin";
     });
     event.preventDefault();
   });
