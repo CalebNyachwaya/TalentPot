@@ -18,8 +18,22 @@ def close_db(error):
 @app.before_request
 def filteringrequest():
     """function to filter out routes that dont need authentication"""
+    excluded_paths = [
+        '/',
+        '/signin/',
+        '/signin',
+        '/signup/',
+        '/signup',
+        '/generate_token',
+        '/generate_token/',
+        '/reset_passwd',
+        '/reset_passwd/',
+    ]
+
     if (request.cookies.get("session_id") is None):
-        if (request.path != "/after-signin") and request.path != "/after-signin/":
+        if (request.path in excluded_paths):
+            pass
+        else:
             abort(401)
 
 
@@ -80,6 +94,13 @@ def resetp():
     """ Reset password is alive! """
 
     return render_template('resetpass.html')
+
+
+@app.route('/aft_signin', strict_slashes=False)
+def aft_signin():
+    """ after signin is alive! """
+
+    return render_template('after_signin.html')
 
 
 if __name__ == "__main__":
