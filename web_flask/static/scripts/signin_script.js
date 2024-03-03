@@ -12,7 +12,7 @@ $(document).ready(function () {
       dataType: "json",
     }).done(function (data) {
       alert(`Signed in`);
-      $.cookie('session_id', 'cookieValue');
+      // $.cookie('session_id', 'cookieValue');
     event.preventDefault();
   });
 });
