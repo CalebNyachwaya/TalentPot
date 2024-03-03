@@ -10,9 +10,9 @@ $(document).ready(function () {
       }),
       contentType: "application/json",
       dataType: "json",
-    }).done(function (data) {
-      alert(`Signed in ${data}`);
-    });
+    }).done(function (data, test) {
+      alert(`Signed in` + test);
+      $.cookie('session_id', 'cookieValue');
     event.preventDefault();
   });
 });
