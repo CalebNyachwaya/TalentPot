@@ -10,7 +10,7 @@ $(document).ready(function () {
         data: JSON.stringify({
           email: $("#email").val(),
           new_password: passwd,
-          token: $("#token").val(),
+          reset_token: $("#token").val(),
         }),
         contentType: "application/json",
         dataType: "json",
