@@ -18,22 +18,13 @@ def close_db(error):
 @app.before_request
 def filteringrequest():
     """function to filter out routes that dont need authentication"""
-    excluded_paths = [
-        '/',
-        '/signin/',
-        '/signin',
-        '/signup/',
-        '/signup',
-        '/generate_token',
-        '/generate_token/',
-        '/reset_passwd',
-        '/reset_passwd/',
+    lock_paths = [
+        '/aft_signin/',
+        '/aft_signin',
     ]
 
     if (request.cookies.get("session_id") is None):
-        if (request.path in excluded_paths):
-            pass
-        else:
+        if (request.path in lock_paths):
             abort(401)
 
 
