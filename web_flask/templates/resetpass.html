@@ -29,11 +29,18 @@
       <div class="form-box">
         <!-- <h1 id="title">Set new password</h1> -->
         <h2 id="title-token">Reset your password</h2>
-        <!-- <div class="head_logo">
-          <div class="head_logo2"></div>
-        </div> -->
         <form id="resetpass"" method="PUT">
           <div class="input-group">
+            <div class="input-field" id="namefield">
+              <i class="fa-solid fa-envelope"></i>
+              <input
+                type="email"
+                id="email"
+                placeholder="Email"
+                required
+                minlength="3"
+              />
+            </div>
             <div class="input-field">
               <i class="fa-solid fa-lock"></i>
               <input type="password" id="password" placeholder="New Password" required minlength="6" />
@@ -43,7 +50,6 @@
               <input type="password" id="rpassword" placeholder="Renter Password"required minlength="3" />
             </div>
             <div class="input-field" id="namefield">
-              <!-- <i class="fa-solid fa-user"></i> -->
               <i class="fa-solid fa-lock"></i>
               <input type="text" id="token" placeholder="Token" required minlength="20"/>
             </div>
