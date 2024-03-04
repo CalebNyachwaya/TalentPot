@@ -223,6 +223,19 @@ def profile() -> str:
     return jsonify({"email": usr.email}), 200
 
 
+@app_views.route('/check/<sess>', methods=[
+    'GET'], strict_slashes=False)
+def check(sess) -> str:
+    """method to check user by session_id"""
+    if sess is None:
+        abort(403)
+    from api.v2.app import AUTH
+    usr = AUTH.get_user_from_session_id(sess)
+    if usr is None:
+        abort(403)
+    return jsonify({"email": usr.email}), 200
+
+
 @app_views.route('/reset_password', methods=[
     'POST'], strict_slashes=False)
 def get_reset_password_token() -> str:

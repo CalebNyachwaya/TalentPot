@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ Starts a Flash Web Application """
+import requests
 from models import storage
 from models.employee import Employee
 from os import environ
@@ -23,15 +24,16 @@ def filteringrequest():
         '/aft_signin',
     ]
 
+    from api.v2.app import AUTH
     cooki = request.cookies.get("session_id")
     if (cooki is None):
         if (request.path in lock_paths):
             abort(401)
     if cooki:
-        from api.v2.app import AUTH
-        usr = AUTH.get_user_from_session_id(cooki)
-        if usr is None:
-            abort(403)
+        if (request.path in lock_paths):
+            resp = requests.get("http://talentpot.calebcodes.tech/api/v2/check/" + cooki)
+            if resp.status_code != 200:
+                abort(403)
 
 
 @app.route('/', strict_slashes=False)

@@ -41,6 +41,7 @@ def filteringrequest():
         '/api/v2/reset_password/',
         '/api/v2/users/',
         '/api/v2/sessions/',
+        '/api/v2/check/*',
     ]
     if not AUTH.require_auth(request.path, excluded_paths):
         return
@@ -49,9 +50,8 @@ def filteringrequest():
     if (cooki is None):
         abort(401)
     if cooki:
-        from api.v2.app import AUTH
         usr = AUTH.get_user_from_session_id(cooki)
-	if usr is None:
+        if usr is None:
             abort(403)
 
 
