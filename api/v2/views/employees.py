@@ -30,8 +30,14 @@ def get_employees(company):
                 dict_employees = all_emp.copy()
                 found = True
         found = False
-        if "password" in dict_employees:
-            del dict_employees["password"]
+        if "hashed_password" in dict_employees:
+            del dict_employees["hashed_password"]
+        if "session_id" in dict_employees:
+            del dict_employees["session_id"]
+        if "session_created_at" in dict_employees:
+            del dict_employees["session_created_at"]
+        if "reset_token" in dict_employees:
+            del dict_employees["reset_token"]
         if len(dict_employees) >= 1:
             list_employees.append(dict_employees)
         dict_employees = {}
@@ -49,8 +55,7 @@ def post_employees(company):
     data = request.get_json()
     if not data:
         abort(404, description="Not a JSON")
-    if ("email" not in data or "password" not in data
-        or "company" not in data or "DOB" not in data
+    if ("company" not in data or "DOB" not in data
         or "address" not in data or "city" not in data
         or "country" not in data or "dept" not in data
         or "position" not in data or "phone" not in data
@@ -59,6 +64,16 @@ def post_employees(company):
 
     if "id" in data:
         del data["id"]
+    if "email" in data:
+        del data["email"]
+    if "hashed_password" in data:
+        del data["hashed_password"]
+    if "session_id" in data:
+        del data["session_id"]
+    if "session_created_at" in data:
+        del data["session_created_at"]
+    if "reset_token" in data:
+        del data["reset_token"]
     if "updated_at" in data:
         del data["updated_at"]
     if "created_at" in data:
@@ -92,8 +107,14 @@ def get_dept_employees(company, dept):
                 dict_employees = all_emp.copy()
                 found = True
         found = False
-        if "password" in dict_employees:
-            del dict_employees["password"]
+        if "hashed_password" in dict_employees:
+            del dict_employees["hashed_password"]
+        if "session_id" in dict_employees:
+            del dict_employees["session_id"]
+        if "session_created_at" in dict_employees:
+            del dict_employees["session_created_at"]
+        if "reset_token" in dict_employees:
+            del dict_employees["reset_token"]
         if len(dict_employees) >= 1:
             list_employees.append(dict_employees)
         dict_employees = {}
@@ -126,8 +147,9 @@ def employee_with_id(company):
         for ab, ac in dct.items():
             setattr(usr, ab, ac)
             storage.save()
-            return make_response(jsonify(b.to_dict()), 200)
+            return make_response(jsonify(usr.email), 200)
     abort(404, 'Not found..')
+
 
 @app_views.route('/delete/employees/<company>/', methods=['DELETE'], strict_slashes=False)
 def employee_delete(company):
