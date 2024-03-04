@@ -196,7 +196,7 @@ def login() -> str:
 
 @app_views.route('/sessions', methods=[
     'DELETE'], strict_slashes=False)
-def logout() -> str:
+def logout():
     """method to delete session. same as logout"""
     cooki = request.cookies.get("session_id")
     if cooki is None:
@@ -204,9 +204,9 @@ def logout() -> str:
     from api.v2.app import AUTH
     usr = AUTH.get_user_from_session_id(cooki)
     if usr is None:
-        return
+        return jsonify([])
     AUTH.destroy_session(usr.id)
-    return
+    return jsonify([])
     
 
 
