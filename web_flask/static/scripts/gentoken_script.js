@@ -11,6 +11,7 @@ $(document).ready(function () {
       dataType: "json",
     }).done(function (data) {
       alert(`Generated`);
+      window.location.href = "/reset_passwd";
     });
     event.preventDefault();
   });
