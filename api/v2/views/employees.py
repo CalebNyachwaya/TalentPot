@@ -204,9 +204,10 @@ def logout() -> str:
     from api.v2.app import AUTH
     usr = AUTH.get_user_from_session_id(cooki)
     if usr is None:
-        abort(403)
+        return
     AUTH.destroy_session(usr.id)
-    return redirect("/")
+    return
+    
 
 
 @app_views.route('/profile', methods=[
