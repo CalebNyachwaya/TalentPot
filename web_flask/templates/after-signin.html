@@ -22,6 +22,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -73,7 +74,12 @@
               <a href="#" class="nav-link">About</a>
             </li>
             <li class="nav-item hideOnMobile">
-              <a class="btn btn--small exclude-dot nav-link" href="/">Logout</a>
+              <a
+                class="btn btn--small exclude-dot nav-link"
+                id="aft_script"
+                href="/"
+                >Logout</a
+              >
             </li>
             <li class="nav-link menu-btn">
               <a onclick="showSidebar()" href="#"
@@ -176,5 +182,9 @@
         sidebar.style.display = "none";
       }
     </script>
+    <script
+      type="text/javascript"
+      src="../static/scripts/aft_signin_script.js"
+    ></script>
   </body>
 </html>
