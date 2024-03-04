@@ -5,6 +5,9 @@ $("#aft_script").click(() => {
     type: "DELETE",
     contentType: "application/json",
     dataType: "json",
+    data: JSON.stringify({
+      email: 1,
+    }),
   }).done(function (data) {
     alert(`Logged out succesfully`);
   });
