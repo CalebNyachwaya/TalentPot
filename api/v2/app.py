@@ -46,7 +46,7 @@ def filteringrequest():
     if not AUTH.require_auth(request.path, excluded_paths):
         return
 
-    cooki = request.cookie.get("session_id")
+    cooki = request.cookies.get("session_id")
     if (cooki is None):
         abort(401)
     if cooki:
