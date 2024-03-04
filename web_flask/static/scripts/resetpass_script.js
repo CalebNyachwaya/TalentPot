@@ -16,7 +16,7 @@ $(document).ready(function () {
         dataType: "json",
       }).done(function (data) {
         alert(`Password changed ${data.email}. \n Back to sign-in`);
-        window.location.href = "talentpot.calebcodes.tech/signin";
+        window.location.href = "/signin";
       });
     } else {
       alert("The passwords do not match");

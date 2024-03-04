@@ -10,6 +10,6 @@ $("a#aft_script").click(function () {
     }),
   }).done(function (data) {
     alert(`Logged out succesfully`);
-    window.location.href = "talentpot.calebcodes.tech/signin";
+    window.location.href = "/signin";
   });
 });
