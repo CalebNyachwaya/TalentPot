@@ -1,0 +1,97 @@
+.container-test {
+  height: 100vh;
+  min-height: 600px;
+  background-image: linear-gradient(to right, #eafeee, #dbe7ff);
+  width: 100%;
+}
+
+.features-section {
+  margin-top: 40px;
+  padding: 0 8%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 80px;
+  justify-content: space-around;
+  height: 84vh;
+  flex-wrap: wrap;
+}
+
+.cool {
+  border: red solid 1px;
+}
+
+.feature1 {
+  text-align: center;
+  padding: 0 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  /* border-radius: 30px; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 250px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 30px;
+  width: 300px;
+}
+
+/* .feature-title {
+  height: 50px;
+  border: red solid 1px;
+  width: 100%;
+} */
+/* .feature2 {
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 30px;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} */
+
+.feature1 h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.feature1 p {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #0e1152;
+}
+
+.feature1 a.btn {
+  display: inline-block;
+  margin-top: 20px;
+}
+/* .hidden {
+    display: none;
+  } */
+/* If you have custom styles for your buttons, include them here */
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  z-index: 1; /* Place it above other elements */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /*Center the modal*/
+  background: #fff;
+  padding: 40px;
+  z-index: 2; /* Place it above the overlay */
+}

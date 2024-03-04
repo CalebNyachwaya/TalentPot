@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="shortcut icon" href="images/icon.png" />
+    <title>Talentpot - Test</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:ital,wght@1,100&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/styles/backtest.css" />
+    <link rel="stylesheet" href="../static/styles/header.css" />
+    <link rel="stylesheet" href="../static/styles/main.css" />
+    <link rel="stylesheet" href="../static/styles/landing-page.css" />
+  </head>
+  <body>
+    <div class="container-test">
+      <header>
+        <div class="head_logo">
+          <div class="head_logo2"></div>
+        </div>
+        <div class="navigation-bar">
+          <!-- sidebar -->
+          <ul class="sidebar">
+            <li onclick="hideSidebar()" class="nav-item">
+              <a
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="32"
+                  viewBox="0 -960 960 960"
+                  width="32"
+                >
+                  <path
+                    d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+                  /></svg
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a href="http://www.calebcodes.tech" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#features" class="nav-link">Features</a>
+            </li>
+            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="/signin">Sign in</a>
+            </li>
+          </ul>
+          <!-- normal -->
+          <ul class="nav">
+            <li class="nav-item hideOnMobile">
+              <a href="/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item hideOnMobile">
+              <a href="#features" class="nav-link">Features</a>
+            </li>
+            <li class="nav-item hideOnMobile">
+              <a href="#" class="nav-link">About</a>
+            </li>
+            <li class="nav-item hideOnMobile">
+              <a class="btn btn--small exclude-dot nav-link" href="/signin"
+                >Sign in</a
+              >
+            </li>
+            <li class="nav-link menu-btn">
+              <a onclick="showSidebar()" href="#"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="32"
+                  viewBox="0 -960 960 960"
+                  width="32"
+                >
+                  <path
+                    d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
+                  /></svg
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </header>
+
+      <section class="features-section">
+        <div class="cool">
+          <div class="feature1">
+            <div class="feature-title"><h2>Add User</h2></div>
+            <div class="feature-description">
+              <p>Click the button below to add a new user.</p>
+            </div>
+            <a
+              class="btn btn-big"
+              id="addUserButton"
+              href="http://www.calebcodes.tech/add"
+              >Add User</a
+            >
+          </div>
+        </div>
+        <div class="cool">
+          <div class="feature1">
+            <div class="feature-title"><h2>Delete User</h2></div>
+            <div class="feature-description">
+              <p>Click the button to delete an existing user.</p>
+            </div>
+            <a class="btn btn-big" href="http://www.calebcodes.tech/delete"
+              >Delete User</a
+            >
+          </div>
+        </div>
+        <div class="cool">
+          <div class="feature1">
+            <div class="feature-title"><h2>Modify User</h2></div>
+            <div class="feature-description">
+              <p>Edit user details by clicking the button.</p>
+            </div>
+            <a class="btn btn-big" href="http://www.calebcodes.tech/modify"
+              >Modify User</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>Copyright © TalentPot All Rights Reserved</p>
+      </footer>
+    </div>
+  </body>
+</html>
