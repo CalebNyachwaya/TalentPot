@@ -1,4 +1,4 @@
-$("#aft_script").click(function () {
+$("a#aft_script").click(function () {
   const api = "http://" + "talentpot.calebcodes.tech/api/v2/sessions";
   $.ajax({
     url: api,
