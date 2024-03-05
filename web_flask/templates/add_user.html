@@ -7,70 +7,159 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="shortcut icon" href="images/icon.png" />
     <title>Talentpot - Add</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:ital,wght@1,100&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:ital,wght@1,100&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../static/styles/test.css" />
     <link rel="stylesheet" href="../static/styles/header.css" />
     <link rel="stylesheet" href="../static/styles/main.css" />
     <link rel="stylesheet" href="../static/styles/landing-page.css" />
+    <link rel="stylesheet" href="../static/styles/fun.css" />
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   </head>
   <body>
-    <header>
-      <div class="head_logo"></div>
-      <div class="navigation-bar">
-	<nav>
-	  <a href="www.talentpot.calebcodes.tech">Home</a>
-	  <a href="#features">Features</a>
-	  <a href="">About</a>
-	  <a class="btn btn--small exclude-dot" href="/test">Test</a>
-	</nav>
+    <div class="form-container">
+      <!-- <header>
+        <div class="head_logo"></div>
+        <div class="navigation-bar">
+          <nav>
+            <a href="www.talentpot.calebcodes.tech">Home</a>
+            <a href="#features">Features</a>
+            <a href="">About</a>
+            <a class="btn btn--small exclude-dot" href="/test">Test</a>
+          </nav>
+        </div>
+      </header> -->
+
+      <header>
+        <div class="head_logo">
+          <div class="head_logo2"></div>
+        </div>
+        <div class="navigation-bar">
+          <!-- sidebar -->
+          <ul class="sidebar">
+            <li onclick="hideSidebar()" class="nav-item">
+              <a
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="32"
+                  viewBox="0 -960 960 960"
+                  width="32"
+                >
+                  <path
+                    d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+                  /></svg
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a href="http://www.talentpot.calebcodes.tech" class="nav-link"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#features" class="nav-link">Features</a>
+            </li>
+            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="/signin">Sign in</a>
+            </li>
+          </ul>
+          <!-- normal -->
+          <ul class="nav">
+            <li class="nav-item hideOnMobile">
+              <a href="/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item hideOnMobile">
+              <a href="#features" class="nav-link">Features</a>
+            </li>
+            <li class="nav-item hideOnMobile">
+              <a href="#" class="nav-link">About</a>
+            </li>
+            <li class="nav-item hideOnMobile">
+              <a class="btn btn--small exclude-dot nav-link" href="/signin"
+                >Sign in</a
+              >
+            </li>
+            <li class="nav-link menu-btn">
+              <a onclick="showSidebar()" href="#"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="32"
+                  viewBox="0 -960 960 960"
+                  width="32"
+                >
+                  <path
+                    d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
+                  /></svg
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </header>
+      <div class="fun-container">
+        <div class="form-section">
+          <form id="addUserForm" method="post" class="add_form">
+            <h2>Update User</h2>
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" required minlength="3" />
+            <br />
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" required minlength="3" /> <br />
+            <label for="email">Email:</label>
+            <input type="email" id="email" required /> <br />
+            <br />
+            <label for="company">Company:</label>
+            <input type="text" id="company" required /> <br />
+            <label for="DOB">Date of Birth:</label>
+            <input type="datetime" id="DOB" required /> <br />
+            <label for="address">Address:</label>
+            <input type="text" id="address" required /> <br />
+            <label for="city">City:</label>
+            <input type="text" id="city" required /> <br />
+            <label for="country">Country:</label>
+            <input type="text" id="country" required /> <br />
+            <label for="dept">Department:</label>
+            <input type="text" id="dept" required /> <br />
+            <label for="position">Position:</label>
+            <input type="text" id="position" required /> <br />
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" required maxlength="15" /> <br /><br />
+            <button type="submit" class="btn btn-big">Add</button>
+          </form>
+        </div>
+        <section class="fun-section">
+          <div class="feature-box">
+            <div class="feature1">
+              <h2>Delete User</h2>
+              <p>Click the button to delete an existing user.</p>
+              <a
+                class="btn btn-big"
+                href="http://www.talentpot.calebcodes.tech/delete"
+                >Delete User</a
+              >
+            </div>
+          </div>
+          <div class="feature-box">
+            <div class="feature1">
+              <h2>Modify User</h2>
+              <p>Edit user details by clicking the button.</p>
+              <a
+                class="btn btn-big"
+                href="http://www.talentpot.calebcodes.tech/modify"
+                >Modify User</a
+              >
+            </div>
+          </div>
+        </section>
       </div>
-    </header>
-    <div class="main-container-test-add">
-      <section class="grid-2-cols-add features-section">
-	<div class="feature1">
-	  <h2>Delete User</h2>
-	  <p>Click the button to delete an existing user.</p>
-	  <a class="btn btn-big" href="http://www.talentpot.calebcodes.tech/delete">Delete User</a>
-	</div>
-	<div class="feature2">
-	  <h2>Modify User</h2>
-	  <p>Edit user details by clicking the button.</p>
-	  <a class="btn btn-big" href="http://www.talentpot.calebcodes.tech/modify">Modify User</a>
-	</div>
-      </section>
-      <form id="addUserForm" method="post" class="add_form">
-	<h2>Update User</h2>
-	<label for="first_name">First Name:</label>
-	<input type="text" id="first_name" required minlength="3"/>
-	<br />
-	<label for="last_name">Last Name:</label>
-	<input type="text" id="last_name" required minlength="3"/> <br />
-	<label for="email">Email:</label>
-	<input type="email" id="email" required /> <br />
-	<br />
-	<label for="company">Company:</label>
-	<input type="text" id="company" required /> <br />
-	<label for="DOB">Date of Birth:</label>
-	<input type="datetime" id="DOB" required /> <br />
-	<label for="address">Address:</label>
-	<input type="text" id="address" required /> <br />
-	<label for="city">City:</label>
-	<input type="text" id="city" required /> <br />
-	<label for="country">Country:</label>
-	<input type="text" id="country" required /> <br />
-	<label for="dept">Department:</label>
-	<input type="text" id="dept" required /> <br />
-	<label for="position">Position:</label>
-	<input type="text" id="position" required /> <br />
-	<label for="phone">Phone:</label>
-	<input type="tel" id="phone" required maxlength="15"/> <br /><br />
-	<button type="submit" class="btn btn-big">Add</button>
-      </form>
     </div>
     <footer>
       <p>Copyright © TalentPot All Rights Reserved</p>
     </footer>
-    <script type="text/javascript" src="../static/scripts/all_script.js"></script>
+    <script
+      type="text/javascript"
+      src="../static/scripts/all_script.js"
+    ></script>
   </body>
 </html>
