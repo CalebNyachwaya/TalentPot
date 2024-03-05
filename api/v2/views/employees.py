@@ -16,6 +16,7 @@ def get_employees(company):
     cooki = request.cookies.get("session_id")
     if cooki is None:
         abort(403)
+    from api.v2.app import AUTH
     usr = AUTH.get_user_from_session_id(cooki)
     if usr is None:
         abort(403)
@@ -49,6 +50,7 @@ def post_employees(company):
     cooki = request.cookies.get("session_id")
     if cooki is None:
         abort(403)
+    from api.v2.app import AUTH
     usr = AUTH.get_user_from_session_id(cooki)
     if usr is None:
         abort(403)
@@ -64,8 +66,6 @@ def post_employees(company):
 
     if "id" in data:
         del data["id"]
-    if "email" in data:
-        del data["email"]
     if "hashed_password" in data:
         del data["hashed_password"]
     if "session_id" in data:
@@ -140,9 +140,10 @@ def employee_with_id(company):
     cooki = request.cookies.get("session_id")
     if cooki is None:
         abort(403)
+    from api.v2.app import AUTH
     usr = AUTH.get_user_from_session_id(cooki)
     if usr is None:
-        abort(403)
+        abort(401)
     req_json = request.get_json()
     if req_json is None:
         abort(400, 'Not a JSON')
@@ -165,6 +166,7 @@ def employee_delete(company):
     cooki = request.cookies.get("session_id")
     if cooki is None:
         abort(403)
+    from api.v2.app import AUTH
     usr = AUTH.get_user_from_session_id(cooki)
     if usr is None:
         abort(403)
@@ -229,7 +231,7 @@ def logout():
     """method to delete session. same as logout"""
     cooki = request.cookies.get("session_id")
     if cooki is None:
-        abort(403)
+        abort(404)
     from api.v2.app import AUTH
     usr = AUTH.get_user_from_session_id(cooki)
     if usr is None:

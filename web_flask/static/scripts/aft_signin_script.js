@@ -1,5 +1,5 @@
 $("a#aft_script").click(function () {
-  const api = "http://" + "talentpot.calebcodes.tech/api/v2/sessions";
+  const api = "http://" + "www.talentpot.calebcodes.tech/api/v2/sessions";
   $.ajax({
     url: api,
     type: "DELETE",

@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $("#signin_page").on("submit", function (event) {
-    const api = "http://" + "talentpot.calebcodes.tech/api/v2/sessions";
+    const api = "http://" + "www.talentpot.calebcodes.tech/api/v2/sessions";
     $.ajax({
       url: api,
       type: "POST",
@@ -19,8 +19,8 @@ $(document).ready(function () {
       var expirationDate = new Date();
       expirationDate.setDate(expirationDate.getDate() + 7); // Expires in 7 days
       document.cookie =
-        `session_id=${data.sess}; expires=` + expirationDate.toUTCString();
-      window.location.href = "/aft_signin";
+            `session_id=${data.sess}; expires=` + expirationDate.toUTCString();
+      window.location.href = "http://www.talentpot.calebcodes.tech/aft_signin";
     });
     event.preventDefault();
   });

@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $("#signup_page").on("submit", function (event) {
-    const api = "http://" + "talentpot.calebcodes.tech/api/v2/users";
+    const api = "http://" + "www.talentpot.calebcodes.tech/api/v2/users";
     const passwd = $("#password").val();
     const rpasswd = $("#rpassword").val();
     if (passwd === rpasswd) {
@@ -14,7 +14,8 @@ $(document).ready(function () {
         contentType: "application/json",
         dataType: "json",
       }).done(function (data) {
-        alert(`User created ${data}`);
+      alert(`User created ${data.email}`);
+      window.location.href = "http://www.talentpot.calebcodes.tech/signin";
       });
     } else {
       alert("The passwords do not match");
