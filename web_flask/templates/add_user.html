@@ -54,16 +54,19 @@
               ></a>
             </li>
             <li class="nav-item">
-              <a href="http://www.talentpot.calebcodes.tech" class="nav-link"
-                >Home</a
-              >
+              <a href="http://www.calebcodes.tech" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item hideOnMobile">
+              <div class="after-signin">
+                <a href="/test" class="nav-link">Test</a>
+              </div>
             </li>
             <li class="nav-item">
               <a href="#features" class="nav-link">Features</a>
             </li>
             <li class="nav-item"><a href="#" class="nav-link">About</a></li>
             <li class="nav-item">
-              <a class="nav-link" href="/signin">Sign in</a>
+              <a class="nav-link" href="#" id="aft_script">Logout</a>
             </li>
           </ul>
           <!-- normal -->
@@ -72,14 +75,22 @@
               <a href="/" class="nav-link">Home</a>
             </li>
             <li class="nav-item hideOnMobile">
+              <div class="after-signin">
+                <a href="/test" class="nav-link">Test</a>
+              </div>
+            </li>
+            <li class="nav-item hideOnMobile">
               <a href="#features" class="nav-link">Features</a>
             </li>
             <li class="nav-item hideOnMobile">
               <a href="#" class="nav-link">About</a>
             </li>
             <li class="nav-item hideOnMobile">
-              <a class="btn btn--small exclude-dot nav-link" href="/signin"
-                >Sign in</a
+              <a
+                class="btn btn--small exclude-dot nav-link"
+                href="#"
+                id="aft_script"
+                >Logout</a
               >
             </li>
             <li class="nav-link menu-btn">
@@ -98,6 +109,7 @@
           </ul>
         </div>
       </header>
+
       <div class="fun-container">
         <div class="form-title"><h2>Update User</h2></div>
         <div class="form-section">
@@ -168,5 +180,6 @@
       type="text/javascript"
       src="../static/scripts/all_script.js"
     ></script>
+    <script type="text/javascript" src="../static/scripts/sidebar.js"></script>
   </body>
 </html>

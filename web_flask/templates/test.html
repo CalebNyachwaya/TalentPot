@@ -29,6 +29,7 @@
 	</nav>
       </div>
     </header> -->
+
       <header>
         <div class="head_logo">
           <div class="head_logo2"></div>
@@ -50,14 +51,19 @@
               ></a>
             </li>
             <li class="nav-item">
-              <a href="http://www.talentpot.calebcodes.tech" class="nav-link">Home</a>
+              <a href="http://www.calebcodes.tech" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item hideOnMobile">
+              <div class="after-signin">
+                <a href="/test" class="nav-link">Test</a>
+              </div>
             </li>
             <li class="nav-item">
               <a href="#features" class="nav-link">Features</a>
             </li>
             <li class="nav-item"><a href="#" class="nav-link">About</a></li>
             <li class="nav-item">
-              <a class="nav-link" href="/signin">Sign in</a>
+              <a class="nav-link" href="#" id="aft_script">Logout</a>
             </li>
           </ul>
           <!-- normal -->
@@ -66,14 +72,22 @@
               <a href="/" class="nav-link">Home</a>
             </li>
             <li class="nav-item hideOnMobile">
+              <div class="after-signin">
+                <a href="/test" class="nav-link">Test</a>
+              </div>
+            </li>
+            <li class="nav-item hideOnMobile">
               <a href="#features" class="nav-link">Features</a>
             </li>
             <li class="nav-item hideOnMobile">
               <a href="#" class="nav-link">About</a>
             </li>
             <li class="nav-item hideOnMobile">
-              <a class="btn btn--small exclude-dot nav-link" href="/signin"
-                >Sign in</a
+              <a
+                class="btn btn--small exclude-dot nav-link"
+                href="#"
+                id="aft_script"
+                >Logout</a
               >
             </li>
             <li class="nav-link menu-btn">
@@ -111,7 +125,9 @@
           <div class="feature-description">
             <p>Click the button to delete an existing user.</p>
           </div>
-          <a class="btn btn-big" href="http://www.talentpot.calebcodes.tech/delete"
+          <a
+            class="btn btn-big"
+            href="http://www.talentpot.calebcodes.tech/delete"
             >Delete User</a
           >
         </div>
@@ -120,15 +136,17 @@
           <div class="feature-description">
             <p>Edit user details by clicking the button.</p>
           </div>
-          <a class="btn btn-big" href="http://www.talentpot.calebcodes.tech/modify"
+          <a
+            class="btn btn-big"
+            href="http://www.talentpot.calebcodes.tech/modify"
             >Modify User</a
           >
         </div>
       </section>
-
-      <footer>
-        <p>Copyright © TalentPot All Rights Reserved</p>
-      </footer>
     </div>
+    <footer>
+      <p>Copyright © TalentPot All Rights Reserved</p>
+    </footer>
+    <script type="text/javascript" src="../static/scripts/sidebar.js"></script>
   </body>
 </html>

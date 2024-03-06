@@ -1,19 +1,21 @@
 .container-test {
-  height: 100vh;
-  min-height: 600px;
+  min-height: 95vh;
+  /* min-height: 600px; */
   background-image: linear-gradient(to right, #eafeee, #dbe7ff);
   width: 100%;
 }
 
 .features-section {
   margin-top: 40px;
-  padding: 0 8%;
+  /* border: green solid 2px; */
+  padding: 0 8% 40px;
   display: grid;
   /* grid-template-columns: 1fr 1fr 1fr; */
   display: flex;
   justify-content: space-around;
-  height: 84vh;
-  gap: 50px;
+  /* height: 84vh; */
+  height: auto;
+  gap: 40px;
   flex-wrap: wrap;
 }
 
