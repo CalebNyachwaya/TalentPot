@@ -22,7 +22,7 @@ $(document).ready(function () {
 	    dataType: 'json',
 	})
 	    .done(function (data) {
-		alert("Employee added sucessfully");
+		alert(`Employee added sucessfully ${data.email}`);
 	    })
 	event.preventDefault();
     })
