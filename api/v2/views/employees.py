@@ -10,15 +10,6 @@ from api.v2.app import Message
 """from flasgger.utils import swag_from"""
 
 
-"""
-@app_views.route("/", methods=["GET"], strict_slashes=False)
-def index() -> str:"""
-"""GET /
-Return:
-- The home page's payload.
-"""
-"""return jsonify({"message": "Bienvenue"})"""
-
 
 @app_views.route('/employees/<company>', methods=['GET'], strict_slashes=False)
 def get_employees(company):
@@ -76,9 +67,8 @@ def post_employees(company):
     if "created_at" in data:
         del data["created_at"]
     data["company"] = company
-    emp_ins = Employee(**data)
-    emp_ins.save()
-    return make_response(jsonify(emp_ins.to_dict()), 201)
+    AUTH.update_usr(cooki, data)
+    return make_response(jsonify(usr.to_dict()), 201)
 
 @app_views.route('/employees/<company>/<dept>', methods=['GET'], strict_slashes=False)
 def get_dept_employees(company, dept):

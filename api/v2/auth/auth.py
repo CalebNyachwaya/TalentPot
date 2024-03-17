@@ -152,3 +152,14 @@ session in db to none"""
             return None
         cookie_name = os.getenv('SESSION_NAME')
         return request.cookies.get(cookie_name)
+
+    def update_usr(self, cooki: str, usr_dt: dict) -> None:
+        """update password via reset token"""
+        try:
+            usr = self.get_user_from_session_id(cooki)
+            for a, b in usr_dt.items():
+                self._db.update_user(
+                    usr.id, a=b)
+            return None
+        except NoResultFound:
+            raise ValueError
