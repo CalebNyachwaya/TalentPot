@@ -156,10 +156,19 @@ session in db to none"""
     def update_usr(self, cooki: str, usr_dt: dict) -> None:
         """update password via reset token"""
         try:
+            first_name = usr_dt.get("first_name")
+            last_name = usr_dt.get("last_name")
+            phone = usr_dt.get("phone")
+            dept = usr_dt.get("dept")
+            position = usr_dt.get("position")
+	    DOB = usr_dt.get("DOB")
+	    company = usr_dt.get("company")
+            address = usr_dt.get("address")
+            city = usr_dt.get("city")
+            country = usr_dt.get("country")
             usr = self.get_user_from_session_id(cooki)
-            for a, b in usr_dt.items():
-                self._db.update_user(
-                    usr.id, a=b)
+            self._db.update_user(
+                usr.id, first_name=first_name, last_name=last_name, phone=phone, dept=dept, position=position, DOB=DOB, company=company, address=address, city=city, country=country)
             return None
         except NoResultFound:
             raise ValueError
