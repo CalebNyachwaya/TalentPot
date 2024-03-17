@@ -161,7 +161,7 @@ session in db to none"""
             phone = usr_dt.get("phone")
             dept = usr_dt.get("dept")
             position = usr_dt.get("position")
-	    DOB = usr_dt.get("DOB")
+            DOB = usr_dt.get("DOB")
 	    company = usr_dt.get("company")
             address = usr_dt.get("address")
             city = usr_dt.get("city")
