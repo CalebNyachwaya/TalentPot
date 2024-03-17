@@ -83,21 +83,15 @@ def post_employees(company):
     if "created_at" in data:
         del data["created_at"]
     data["company"] = company
-<<<<<<< HEAD
-    AUTH.update_usr(cooki, data)
-    return make_response(jsonify(usr.to_dict()), 201)
-=======
     dct = {}
     if usr.email == data.get("email"):
         for arr, brr in  data.items():
             if len(brr) > 2:
                 dct[arr] = brr
-        for ab, ac in dct.items():
-            setattr(usr, ab, ac)
-            storage.save()
-            return make_response(jsonify(usr.email), 200)
+        AUTH.update_usr(cooki, data)
+        return make_response(jsonify(usr.to_dict()), 201)
     abort(404, 'Not found..')
->>>>>>> f607b66765d80f63581aa085b24ac2daea58cb90
+
 
 @app_views.route('/employees/<company>/<dept>', methods=['GET'], strict_slashes=False)
 def get_dept_employees(company, dept):
