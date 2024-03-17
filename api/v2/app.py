@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Flask Application """
-from flask_mail import Mail, Message
+from flask_mail import Mail
 from models import storage
 from api.v2.views import app_views
 from os import environ
@@ -41,13 +41,18 @@ def filteringrequest():
         '/api/v2/reset_password/',
         '/api/v2/users/',
         '/api/v2/sessions/',
+        '/api/v2/check/*',
     ]
     if not AUTH.require_auth(request.path, excluded_paths):
         return
 
-    if AUTH.session_cookie(
-            request) is None:
+    cooki = request.cookies.get("session_id")
+    if (cooki is None):
         abort(401)
+    if cooki:
+        usr = AUTH.get_user_from_session_id(cooki)
+        if usr is None:
+            abort(403)
 
 
 @app.errorhandler(401)

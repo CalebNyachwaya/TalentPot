@@ -85,12 +85,12 @@
 .btn {
   border-radius: 100px;
 }
-.add_form {
+/* .add_form {
   display: flex;
   flex-direction: column;
   height: 600px;
   width: 300px;
-}
+} */
 
 .delete_form {
   margin-top: 200px;

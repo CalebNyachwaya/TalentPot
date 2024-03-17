@@ -3,14 +3,15 @@
 from models.employee import Employee
 from models import storage
 from api.v2.views import app_views
+from flask_mail import Message
 from flask import abort, jsonify, make_response, request
-from api.v2.app import AUTH
-from api.v2.app import mail
-from api.v2.app import Message
 """from flasgger.utils import swag_from"""
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f607b66765d80f63581aa085b24ac2daea58cb90
 @app_views.route('/employees/<company>', methods=['GET'], strict_slashes=False)
 def get_employees(company):
     """
@@ -19,6 +20,7 @@ def get_employees(company):
     cooki = request.cookies.get("session_id")
     if cooki is None:
         abort(403)
+    from api.v2.app import AUTH
     usr = AUTH.get_user_from_session_id(cooki)
     if usr is None:
         abort(403)
@@ -33,8 +35,14 @@ def get_employees(company):
                 dict_employees = all_emp.copy()
                 found = True
         found = False
-        if "password" in dict_employees:
-            del dict_employees["password"]
+        if "hashed_password" in dict_employees:
+            del dict_employees["hashed_password"]
+        if "session_id" in dict_employees:
+            del dict_employees["session_id"]
+        if "session_created_at" in dict_employees:
+            del dict_employees["session_created_at"]
+        if "reset_token" in dict_employees:
+            del dict_employees["reset_token"]
         if len(dict_employees) >= 1:
             list_employees.append(dict_employees)
         dict_employees = {}
@@ -46,14 +54,14 @@ def post_employees(company):
     cooki = request.cookies.get("session_id")
     if cooki is None:
         abort(403)
+    from api.v2.app import AUTH
     usr = AUTH.get_user_from_session_id(cooki)
     if usr is None:
         abort(403)
     data = request.get_json()
     if not data:
         abort(404, description="Not a JSON")
-    if ("email" not in data or "password" not in data
-        or "company" not in data or "DOB" not in data
+    if ("company" not in data or "DOB" not in data
         or "address" not in data or "city" not in data
         or "country" not in data or "dept" not in data
         or "position" not in data or "phone" not in data
@@ -62,13 +70,34 @@ def post_employees(company):
 
     if "id" in data:
         del data["id"]
+    if "hashed_password" in data:
+        del data["hashed_password"]
+    if "session_id" in data:
+        del data["session_id"]
+    if "session_created_at" in data:
+        del data["session_created_at"]
+    if "reset_token" in data:
+        del data["reset_token"]
     if "updated_at" in data:
         del data["updated_at"]
     if "created_at" in data:
         del data["created_at"]
     data["company"] = company
+<<<<<<< HEAD
     AUTH.update_usr(cooki, data)
     return make_response(jsonify(usr.to_dict()), 201)
+=======
+    dct = {}
+    if usr.email == data.get("email"):
+        for arr, brr in  data.items():
+            if len(brr) > 2:
+                dct[arr] = brr
+        for ab, ac in dct.items():
+            setattr(usr, ab, ac)
+            storage.save()
+            return make_response(jsonify(usr.email), 200)
+    abort(404, 'Not found..')
+>>>>>>> f607b66765d80f63581aa085b24ac2daea58cb90
 
 @app_views.route('/employees/<company>/<dept>', methods=['GET'], strict_slashes=False)
 def get_dept_employees(company, dept):
@@ -78,6 +107,7 @@ def get_dept_employees(company, dept):
     cooki = request.cookies.get("session_id")
     if cooki is None:
         abort(403)
+    from api.v2.app import AUTH
     usr = AUTH.get_user_from_session_id(cooki)
     if usr is None:
         abort(403)
@@ -93,8 +123,14 @@ def get_dept_employees(company, dept):
                 dict_employees = all_emp.copy()
                 found = True
         found = False
-        if "password" in dict_employees:
-            del dict_employees["password"]
+        if "hashed_password" in dict_employees:
+            del dict_employees["hashed_password"]
+        if "session_id" in dict_employees:
+            del dict_employees["session_id"]
+        if "session_created_at" in dict_employees:
+            del dict_employees["session_created_at"]
+        if "reset_token" in dict_employees:
+            del dict_employees["reset_token"]
         if len(dict_employees) >= 1:
             list_employees.append(dict_employees)
         dict_employees = {}
@@ -113,9 +149,10 @@ def employee_with_id(company):
     cooki = request.cookies.get("session_id")
     if cooki is None:
         abort(403)
+    from api.v2.app import AUTH
     usr = AUTH.get_user_from_session_id(cooki)
     if usr is None:
-        abort(403)
+        abort(401)
     req_json = request.get_json()
     if req_json is None:
         abort(400, 'Not a JSON')
@@ -127,8 +164,9 @@ def employee_with_id(company):
         for ab, ac in dct.items():
             setattr(usr, ab, ac)
             storage.save()
-            return make_response(jsonify(b.to_dict()), 200)
+            return make_response(jsonify(usr.email), 200)
     abort(404, 'Not found..')
+
 
 @app_views.route('/delete/employees/<company>/', methods=['DELETE'], strict_slashes=False)
 def employee_delete(company):
@@ -137,6 +175,7 @@ def employee_delete(company):
     cooki = request.cookies.get("session_id")
     if cooki is None:
         abort(403)
+    from api.v2.app import AUTH
     usr = AUTH.get_user_from_session_id(cooki)
     if usr is None:
         abort(403)
@@ -161,10 +200,14 @@ def employee_delete(company):
     'POST'], strict_slashes=False)
 def reg_user() -> str:
     """register a user to the server"""
-    email = request.form.get("email")
-    password = request.form.get("password")
+    data = request.get_json()
+    if not data:
+        abort(404)
+    email = data.get("email")
+    password = data.get("password")
     if email and password:
         try:
+            from api.v2.app import AUTH
             usr = AUTH.register_user(email, password)
             return jsonify({"email": usr.email,
                             "message": "user created"})
@@ -176,12 +219,16 @@ def reg_user() -> str:
     'POST'], strict_slashes=False)
 def login() -> str:
     """method to comfirm logged in"""
-    email = request.form.get("email")
-    password = request.form.get("password")
+    data = request.get_json()
+    if not data:
+        abort(404)
+    email = data.get("email")
+    password = data.get("password")
+    from api.v2.app import AUTH
     if AUTH.valid_login(email, password):
         uid = AUTH.create_session(email)
         response = jsonify({"email": email, "message": "logged in", "sess": uid})
-        response.set_cookie("session_id", uid)
+        response.set_cookie("session_id", uid, max_age=900)
         return response
     else:
         abort(401)
@@ -189,16 +236,18 @@ def login() -> str:
 
 @app_views.route('/sessions', methods=[
     'DELETE'], strict_slashes=False)
-def logout() -> str:
+def logout():
     """method to delete session. same as logout"""
     cooki = request.cookies.get("session_id")
     if cooki is None:
-        abort(403)
+        abort(404)
+    from api.v2.app import AUTH
     usr = AUTH.get_user_from_session_id(cooki)
     if usr is None:
-        abort(403)
+        return jsonify([])
     AUTH.destroy_session(usr.id)
-    return redirect("/")
+    return jsonify([])
+    
 
 
 @app_views.route('/profile', methods=[
@@ -208,7 +257,21 @@ def profile() -> str:
     cooki = request.cookies.get("session_id")
     if cooki is None:
         abort(403)
+    from api.v2.app import AUTH
     usr = AUTH.get_user_from_session_id(cooki)
+    if usr is None:
+        abort(403)
+    return jsonify({"email": usr.email}), 200
+
+
+@app_views.route('/check/<sess>', methods=[
+    'GET'], strict_slashes=False)
+def check(sess) -> str:
+    """method to check user by session_id"""
+    if sess is None:
+        abort(403)
+    from api.v2.app import AUTH
+    usr = AUTH.get_user_from_session_id(sess)
     if usr is None:
         abort(403)
     return jsonify({"email": usr.email}), 200
@@ -218,8 +281,13 @@ def profile() -> str:
     'POST'], strict_slashes=False)
 def get_reset_password_token() -> str:
     """method to get a reset password token"""
-    email = request.form.get("email")
+    from api.v2.app import mail
+    data = request.get_json()
+    if not data:
+        abort(404)
+    email = data.get("email")
     try:
+        from api.v2.app import AUTH
         r_tok = AUTH.get_reset_password_token(email)
         if r_tok is None:
             abort(403)
@@ -235,10 +303,14 @@ def get_reset_password_token() -> str:
     'PUT'], strict_slashes=False)
 def update_password() -> str:
     """route to update password for user"""
-    email = request.form.get("email")
-    reset_token = request.form.get("reset_token")
-    new_password = request.form.get("new_password")
+    data = request.get_json()
+    if not data:
+        abort(404)
+    email = data.get("email")
+    reset_token = data.get("reset_token")
+    new_password = data.get("new_password")
     try:
+        from api.v2.app import AUTH
         AUTH.update_password(reset_token, new_password)
         return jsonify({"email": email, "message": "Password updated"})
     except ValueError:

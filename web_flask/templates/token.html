@@ -22,20 +22,27 @@
       src="https://kit.fontawesome.com/e96e4f984c.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   </head>
   <body>
     <div class="form-container">
       <div class="form-box">
         <h2 id="title-token">Reset your password</h2>
-        <form action="/api/v2/reset_password" method="POST">
+        <form id="gentoken" method="POST">
           <div class="input-group-token">
             <div class="input-field">
               <i class="fa-solid fa-envelope"></i>
-              <input type="email" placeholder="Email" />
+              <input
+                type="email"
+                id="email"
+                placeholder="Email"
+                required
+                minlength="3"
+              />
             </div>
           </div>
           <div class="btn-field-token">
-            <button type="submit" id="signupBtn">Generate Token</button>
+            <button type="submit" id="signupBtn">Send me token</button>
           </div>
         </form>
       </div>
@@ -60,5 +67,9 @@
         signupBtn.classList.remove("disable");
       };
     </script>
+    <script
+      type="text/javascript"
+      src="../static/scripts/gentoken_script.js"
+    ></script>
   </body>
 </html>

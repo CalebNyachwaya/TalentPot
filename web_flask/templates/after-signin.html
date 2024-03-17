@@ -22,6 +22,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -48,20 +49,28 @@
             <li class="nav-item">
               <a href="http://www.calebcodes.tech" class="nav-link">Home</a>
             </li>
+            <li class="nav-item hideOnMobile">
+              <div class="after-signin">
+                <a href="/test" class="nav-link">Test</a>
+              </div>
+            </li>
             <li class="nav-item">
               <a href="#features" class="nav-link">Features</a>
             </li>
             <li class="nav-item"><a href="#" class="nav-link">About</a></li>
             <li class="nav-item">
-              <a class="nav-link" href="http://www.calebcodes.tech/test"
-                >Test</a
-              >
+              <a class="nav-link" href="#" id="aft_script">Logout</a>
             </li>
           </ul>
           <!-- normal -->
           <ul class="nav">
             <li class="nav-item hideOnMobile">
-              <a href="http://www.calebcodes.tech" class="nav-link">Home</a>
+              <a href="/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item hideOnMobile">
+              <div class="after-signin">
+                <a href="/test" class="nav-link">Test</a>
+              </div>
             </li>
             <li class="nav-item hideOnMobile">
               <a href="#features" class="nav-link">Features</a>
@@ -72,8 +81,9 @@
             <li class="nav-item hideOnMobile">
               <a
                 class="btn btn--small exclude-dot nav-link"
-                href="http://www.calebcodes.tech/test"
-                >Test</a
+                href="#"
+                id="aft_script"
+                >Logout</a
               >
             </li>
             <li class="nav-link menu-btn">
@@ -113,7 +123,9 @@
             suite of tools to help you effortlessly manage employee information,
             from onboarding to data updates and more
           </div>
-          <div><a class="btn btn-big" href="#">Sign in</a></div>
+          <div class="after-signin">
+            <a class="btn btn-big" href="/test">Explore</a>
+          </div>
           <div id="screen-width"></div>
           <div id="screen-height"></div>
 
@@ -175,5 +187,9 @@
         sidebar.style.display = "none";
       }
     </script>
+    <script
+      type="text/javascript"
+      src="../static/scripts/aft_signin_script.js"
+    ></script>
   </body>
 </html>

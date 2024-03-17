@@ -1,6 +1,7 @@
 header {
-  height: 12%;
-  min-height: 50px;
+  /* height: 12%;
+  min-height: 50px; */
+  height: 70px;
   background-color: transparent;
   width: 100%;
   display: flex;
@@ -60,6 +61,12 @@ header {
 
 ul.nav li:last-child a {
   padding: 0;
+}
+
+ul.nav li:nth-last-child(2) a {
+  padding: 8px 18px;
+  margin-left: 10px;
+  width: 102px;
 }
 
 .menu-btn {

@@ -11,25 +11,13 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:ital,wght@1,100&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../static/styles/test.css" />
+    <link rel="stylesheet" href="../static/styles/backtest.css" />
     <link rel="stylesheet" href="../static/styles/header.css" />
     <link rel="stylesheet" href="../static/styles/main.css" />
     <link rel="stylesheet" href="../static/styles/landing-page.css" />
   </head>
   <body>
     <div class="container-test">
-      <!-- <header>
-      <div class="head_logo"></div>
-      <div class="navigation-bar">
-	<nav>
-	  <a href="http://www.calebcodes.tech">Home</a>
-	  <a href="#features">Features</a>
-	  <a href="">About</a>
-	  <a class="btn btn--small exclude-dot" href="test.html">Test</a>
-	</nav>
-      </div>
-    </header> -->
-
       <header>
         <div class="head_logo">
           <div class="head_logo2"></div>
@@ -53,17 +41,12 @@
             <li class="nav-item">
               <a href="http://www.calebcodes.tech" class="nav-link">Home</a>
             </li>
-            <li class="nav-item hideOnMobile">
-              <div class="after-signin">
-                <a href="/test" class="nav-link">Test</a>
-              </div>
-            </li>
             <li class="nav-item">
               <a href="#features" class="nav-link">Features</a>
             </li>
             <li class="nav-item"><a href="#" class="nav-link">About</a></li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="aft_script">Logout</a>
+              <a class="nav-link" href="/signin">Sign in</a>
             </li>
           </ul>
           <!-- normal -->
@@ -72,22 +55,14 @@
               <a href="/" class="nav-link">Home</a>
             </li>
             <li class="nav-item hideOnMobile">
-              <div class="after-signin">
-                <a href="/test" class="nav-link">Test</a>
-              </div>
-            </li>
-            <li class="nav-item hideOnMobile">
               <a href="#features" class="nav-link">Features</a>
             </li>
             <li class="nav-item hideOnMobile">
               <a href="#" class="nav-link">About</a>
             </li>
             <li class="nav-item hideOnMobile">
-              <a
-                class="btn btn--small exclude-dot nav-link"
-                href="#"
-                id="aft_script"
-                >Logout</a
+              <a class="btn btn--small exclude-dot nav-link" href="/signin"
+                >Sign in</a
               >
             </li>
             <li class="nav-link menu-btn">
@@ -108,45 +83,47 @@
       </header>
 
       <section class="features-section">
-        <div class="feature1">
-          <div class="feature-title"><h2>Update User</h2></div>
-          <div class="feature-description">
-            <p>Click the button below to add a new user.</p>
+        <div class="cool">
+          <div class="feature1">
+            <div class="feature-title"><h2>Add User</h2></div>
+            <div class="feature-description">
+              <p>Click the button below to add a new user.</p>
+            </div>
+            <a
+              class="btn btn-big"
+              id="addUserButton"
+              href="http://www.calebcodes.tech/add"
+              >Add User</a
+            >
           </div>
-          <a
-            class="btn btn-big"
-            id="addUserButton"
-            href="http://www.talentpot.calebcodes.tech/add"
-            >Add User</a
-          >
         </div>
-        <div class="feature1">
-          <div class="feature-title"><h2>Delete User</h2></div>
-          <div class="feature-description">
-            <p>Click the button to delete an existing user.</p>
+        <div class="cool">
+          <div class="feature1">
+            <div class="feature-title"><h2>Delete User</h2></div>
+            <div class="feature-description">
+              <p>Click the button to delete an existing user.</p>
+            </div>
+            <a class="btn btn-big" href="http://www.calebcodes.tech/delete"
+              >Delete User</a
+            >
           </div>
-          <a
-            class="btn btn-big"
-            href="http://www.talentpot.calebcodes.tech/delete"
-            >Delete User</a
-          >
         </div>
-        <div class="feature1">
-          <div class="feature-title"><h2>Modify User</h2></div>
-          <div class="feature-description">
-            <p>Edit user details by clicking the button.</p>
+        <div class="cool">
+          <div class="feature1">
+            <div class="feature-title"><h2>Modify User</h2></div>
+            <div class="feature-description">
+              <p>Edit user details by clicking the button.</p>
+            </div>
+            <a class="btn btn-big" href="http://www.calebcodes.tech/modify"
+              >Modify User</a
+            >
           </div>
-          <a
-            class="btn btn-big"
-            href="http://www.talentpot.calebcodes.tech/modify"
-            >Modify User</a
-          >
         </div>
       </section>
+
+      <footer>
+        <p>Copyright © TalentPot All Rights Reserved</p>
+      </footer>
     </div>
-    <footer>
-      <p>Copyright © TalentPot All Rights Reserved</p>
-    </footer>
-    <script type="text/javascript" src="../static/scripts/sidebar.js"></script>
   </body>
 </html>
