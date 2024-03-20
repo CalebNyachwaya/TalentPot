@@ -92,13 +92,13 @@
   width: 300px;
 } */
 
-.delete_form {
+/* .delete_form {
   margin-top: 200px;
   display: flex;
   flex-direction: column;
   height: 600px;
   width: 300px;
-}
+} */
 
 #screen-width {
   position: absolute;
