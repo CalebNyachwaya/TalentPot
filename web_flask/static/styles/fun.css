@@ -6,8 +6,10 @@
   /* background-position: center;
   background-repeat: no-repeat; */
   min-height: 95vh;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* place-items: center; */
   width: 100%;
   font-size: var(--placeholder-font);
 }
@@ -80,8 +82,18 @@
   width: 80%;
 }
 
+.delete_form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.form-section button {
+  margin-top: 20px;
+}
 input {
-  background: #dfdfdf;
+  /* background: #dfdfdf; */
+  background: #e8f0fe;
   margin: 2px 0;
   height: 30px;
   border-radius: 3px;
