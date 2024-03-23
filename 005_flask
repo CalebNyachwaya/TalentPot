@@ -3,13 +3,12 @@ pip install Flask-Mail
 
 # install flasgger
 sudo apt-get install -y python3-lxml
-sudo pip3 install flask_cors
-sudo pip3 install flasgger
+pip3 install flask_cors
+pip3 install flasgger
 
 
 # jsonschema exception
-sudo pip3 uninstall -y jsonschema 
-sudo pip3 install jsonschema==3.0.1
+pip3 install jsonschema==3.0.1
 
 # No module named 'pathlib2'
-sudo pip3 install pathlib2
+pip3 install pathlib2
