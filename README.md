@@ -1,13 +1,20 @@
+### NOTE
+
+We developed TalentPot as our final project during the ALX Software Engineering program. This project represents our dedication, skills, and knowledge acquired throughout the program.
+
+---
+
 # TalentPot
 
 TalentPot simplifies employee management. Easily organize HR tasks, track employee details, and create a productive workplace.
 
 ## Features:
+
 - Employee Data Management
 - Department and Position Tracking
 - Joining and Departure Records
 - Modifying employee records
-  
+
 <!--
 User-Friendly HR Interface
 Collaborative HR Tools
@@ -43,16 +50,16 @@ This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.
 * Run hbnb(non-interactively): `echo "<command>" | ./console.py`
 
 ## File Descriptions
-[console.py](console.py) - the console contains the entry point of the command interpreter. 
+[console.py](console.py) - the console contains the entry point of the command interpreter.
 List of commands this console current supports:
-* `EOF` - exits console 
+* `EOF` - exits console
 * `quit` - exits console
 * `<emptyline>` - overwrites default emptyline method and does nothing
 * `create` - Creates a new instance of`BaseModel`, saves it (to the JSON file) and prints the id
-* `destroy` - Deletes an instance based on the class name and id (save the change into the JSON file). 
+* `destroy` - Deletes an instance based on the class name and id (save the change into the JSON file).
 * `show` - Prints the string representation of an instance based on the class name and id.
-* `all` - Prints all string representation of all instances based or not on the class name. 
-* `update` - Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file). 
+* `all` - Prints all string representation of all instances based or not on the class name.
+* `update` - Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file).
 
 #### `models/` directory contains classes used for this project:
 [base_model.py](/models/base_model.py) - The BaseModel class from which future classes will be derived
@@ -166,10 +173,11 @@ EOF  all  create  destroy  help  quit  show  update
 ```
 
 ## Bugs
-No known bugs at this time. 
+No known bugs at this time.
 -->
 
 ## Authors
+
 - [Richard Chukwuchekwa](https://github.com/Chekwasy)
 - [Caleb Nyachwaya](https://github.com/CalebNyachwaya)
 
