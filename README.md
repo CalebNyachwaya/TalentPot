@@ -4,7 +4,7 @@ We developed TalentPot as our final project during the ALX Software Engineering 
 
 ---
 
-# TalentPot
+<h1 align="center">TalentPot</h1>
 
 TalentPot simplifies employee management. Easily organize HR tasks, track employee details, and create a productive workplace.
 
