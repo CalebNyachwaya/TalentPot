@@ -1,22 +1,22 @@
-### NOTE
+<!-- ### NOTE
 
 We developed TalentPot as our final project during the ALX Software Engineering program. This project represents our skills, and knowledge acquired throughout the program.
 
 ---
 
 <br>
-<br>
-<h1 align="center">TalentPot</h1>
+<br> -->
 
 <div align="center">
 
 ![TalentPot Logo](/web_flask/static/images/TalentPot%20-%20blog.png)
 
 </div>
-
-## Description
-
+<h1 align="center">TalentPot</h1>
+We developed TalentPot as our final project during the ALX Software Engineering program. This project represents our skills, and knowledge acquired throughout the program.
 TalentPot simplifies employee management. Easily organize HR tasks, track employee details, and create a productive workplace.
+
+<!-- ## Description -->
 
 ## Features:
 
