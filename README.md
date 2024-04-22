@@ -4,6 +4,8 @@ We developed TalentPot as our final project during the ALX Software Engineering 
 
 ---
 
+<br>
+<br>
 <h1 align="center">TalentPot</h1>
 
 <div align="center">
