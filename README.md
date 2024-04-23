@@ -24,9 +24,11 @@ Visit: [TalentPot](http://www.talentpot.calebcodes.tech/)
 
 ### Frontend
 
-| Tool | Version |
-| :--- | :------ |
-| HTML | 5       |
+<!-- | Tool       | Version |
+| :--------- | :------ |
+| HTML       | 5       |
+| CSS        | 5       |
+| JavaScript |         | -->
 
 - HTML
 - CSS
