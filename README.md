@@ -47,6 +47,7 @@ Visit: [TalentPot](http://www.talentpot.calebcodes.tech/)
 ## Screens
 **Desktop Large**
 ![Landing Page](/web_flask/static/images/Desktop.png)
+![Landing Page](/web_flask/static/images/DesktopLandingPage2.png)
 
 ## Authors
 
