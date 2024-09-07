@@ -20,6 +20,10 @@ TalentPot simplifies employee management. Easily organize HR tasks, track employ
 
 Visit: [TalentPot](http://www.talentpot.calebcodes.tech/)
 
+## Overview
+
+![Landing Page](/web_flask/static/images/Landing-Page.png)
+
 ## Dependencies
 
 ### Frontend
